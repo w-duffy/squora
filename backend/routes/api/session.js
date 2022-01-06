@@ -32,8 +32,20 @@ router.post(
 
 // Log out
 router.delete("/", (_req, res) => {
-  res.clearCookie("token");
-  return res.json({ message: "success" });
+    res.clearCookie("token");
+    return res.json({ message: "success" });
+  });
+
+
+// Restore session user
+router.get("/", restoreUser, (req, res) => {
+  const { user } = req;
+  if (user) {
+    return res.json({
+      user: user.toSafeObject(),
+    });
+  } else return res.json({});
 });
+
 
 module.exports = router;
