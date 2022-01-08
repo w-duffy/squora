@@ -11,6 +11,7 @@ function QuestionsLoad() {
   const questions = useSelector((state) => {return state.questionsReducer.questions
   });
 
+  const user =
 
   useEffect(() => {
     dispatch(getQuestions());
@@ -24,8 +25,8 @@ function QuestionsLoad() {
     <main>
       <div>
           {questions.map((question) =>(
-              <p key={question.id}>{question.description}</p>
-          ))}
+              <p key={question.id}>{question.User.username}</p>
+         ))}
       </div>
     </main>
   );

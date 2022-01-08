@@ -4,7 +4,8 @@ const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
 
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { Question } = require("../../db/models");
+const { Question, User } = require("../../db/models");
+
 
 const router = express.Router();
 
@@ -18,7 +19,7 @@ const validateQuestion = [
 router.get(
   "/",
   asyncHandler(async (_req, res) => {
-    const question = await Question.findAll();
+    const question = await Question.findAll({include: {model: User}});
     return res.json(question);
   })
 );
