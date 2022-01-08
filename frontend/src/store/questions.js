@@ -23,10 +23,6 @@ const initialState = {
 const questionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_QUESTIONS: {
-      const allQuestions = {};
-      action.questions.forEach((question) => {
-        allQuestions[question.id] = question;
-      });
       return {
         ...state,
         questions: action.questions

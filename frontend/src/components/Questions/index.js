@@ -8,36 +8,23 @@ function QuestionsLoad() {
 //   const { questionId } = useParams();
   const dispatch = useDispatch();
 
-
-
-//   const question = useSelector((state) => {
-//     return state.questionsReducer.questions.map((questionId) => state.questionsReducer.questions[questionId]);
-//   });
-
   const questions = useSelector((state) => {return state.questionsReducer.questions
   });
-console.log("QUESTIONS", questions)
-
-//   const question = useSelector(state => {
-//     return state.question.list.map(questionId => state.question[questionId]);
-//   });
-
-//   console.log("QUESTION", questions)
 
 
   useEffect(() => {
     dispatch(getQuestions());
   }, []);
 
-//   if (!question) {
-//     return null;
-//   }
+  if (!questions) {
+    return null;
+  }
 
   return (
     <main>
       <div>
           {questions.map((question) =>(
-              <p>{question.description}</p>
+              <p key={question.id}>{question.description}</p>
           ))}
       </div>
     </main>
