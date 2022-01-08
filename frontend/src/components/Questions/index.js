@@ -24,13 +24,9 @@ function QuestionsLoad() {
     <main>
       <div>
         {questions.map((question) => (
-          <div>
-            <div>
-              <p key={question.User.id}>{question.User.username}</p>
-            </div>
-            <div>
-              <p key={question.id}>{question.description}</p>
-            </div>
+          <div key={question.id + 1}>
+              <p>{question.User.username}</p>
+              <p>{question.description}</p>
           </div>
         ))}
       </div>

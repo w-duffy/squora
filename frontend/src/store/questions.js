@@ -11,7 +11,6 @@ export const getQuestions = () => async (dispatch) => {
   if (response.ok) {
     const questions = await response.json();
     dispatch(loadQuestions(questions));
-    console.log("QUESTIONS", questions)
     return questions;
   }
 };
