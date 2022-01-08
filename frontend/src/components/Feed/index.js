@@ -15,7 +15,7 @@ function Feed() {
 
   useEffect(() => {
     dispatch(getQuestions());
-  }, [dispatch]);
+  }, [questions]);
 
   if (!questions) {
     return null;

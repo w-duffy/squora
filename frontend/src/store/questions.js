@@ -45,6 +45,8 @@ const initialState = {
 
 
 const questionsReducer = (state = initialState, action) => {
+  let newState;
+
   switch (action.type) {
     case LOAD_QUESTIONS: {
       return {
@@ -53,10 +55,8 @@ const questionsReducer = (state = initialState, action) => {
       };
     }
     case ADD_QUESTION: {
-      const newState = {
-        ...state,
-        [action.questions.id]: action.questions
-      }
+       newState = Object.assign({}, state)
+       newState = {...newState, ...action.payload}
       return newState;
     }
     default:

@@ -21,7 +21,7 @@ function QuestionForm() {
   };
 
   const postQuestion = async (e) => {
-
+    e.preventDefault()
     const payload = {
       ownerId,
       description,
