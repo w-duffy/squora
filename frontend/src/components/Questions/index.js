@@ -5,15 +5,14 @@ import { getQuestions } from "../../store/questions";
 import { NavLink, Route, useParams } from "react-router-dom";
 
 function QuestionsLoad() {
-//   const { questionId } = useParams();
+  //   const { questionId } = useParams();
   const dispatch = useDispatch();
 
-  const questions = useSelector((state) => {return state.questionsReducer.questions
+  const questions = useSelector((state) => {
+    return state.questionsReducer.questions;
   });
 
-  const user =
-
-  useEffect(() => {
+  const user = useEffect(() => {
     dispatch(getQuestions());
   }, []);
 
@@ -24,9 +23,16 @@ function QuestionsLoad() {
   return (
     <main>
       <div>
-          {questions.map((question) =>(
-              <p key={question.id}>{question.User.username}</p>
-         ))}
+        {questions.map((question) => (
+          <div>
+            <div>
+              <p key={question.User.id}>{question.User.username}</p>
+            </div>
+            <div>
+              <p key={question.id}>{question.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </main>
   );
