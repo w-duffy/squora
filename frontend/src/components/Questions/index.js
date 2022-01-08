@@ -28,7 +28,9 @@ function QuestionForm() {
     };
 
     let createdQuestion = await dispatch(addQuestionForm(payload))
-
+    if(createdQuestion){
+      setDescription("")
+    }
   };
 
   return (
