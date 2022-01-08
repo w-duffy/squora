@@ -24,4 +24,14 @@ router.get(
   })
 );
 
+router.post(
+  "/",
+
+  asyncHandler(async (req, res) => {
+    const {ownerId, description, topicId} = req.body;
+    const question = await Question.create(req.body);
+    return res.json(question);
+  })
+);
+
 module.exports = router;

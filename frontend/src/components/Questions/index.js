@@ -1,37 +1,51 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { getQuestions } from "../../store/questions";
 import { NavLink, Route, useParams } from "react-router-dom";
+import {addQuestionForm} from "../../store/questions"
 
-function QuestionsLoad() {
+function QuestionForm() {
   //   const { questionId } = useParams();
   const dispatch = useDispatch();
-
-  const questions = useSelector((state) => {
-    return state.questionsReducer.questions;
+  const history = useHistory();
+  const sessionUser = useSelector((state) => {
+    return state.session.user;
   });
+  const [description, setDescription] = useState("");
+  const [ownerId, setOwnerId] = useState(sessionUser.id)
 
-  const user = useEffect(() => {
-    dispatch(getQuestions());
-  }, []);
 
-  if (!questions) {
-    return null;
-  }
+  const setDescriptionWrapper = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const postQuestion = async (e) => {
+
+    const payload = {
+      ownerId,
+      description,
+    };
+
+    let createdQuestion = await dispatch(addQuestionForm(payload))
+
+  };
 
   return (
-    <main>
-      <div>
-        {questions.map((question) => (
-          <div key={question.id + 1}>
-              <p>{question.User.username}</p>
-              <p>{question.description}</p>
-          </div>
-        ))}
-      </div>
-    </main>
+    <div id="question-container">
+      <form onSubmit={postQuestion}>
+      <textarea
+      id="description_textarea"
+      placeholder={"What is your question or link?"}
+      value={description}
+      onChange={setDescriptionWrapper}>
+      </textarea>
+      <button type="submit">
+        Add Question
+      </button>
+        </form>
+    </div>
   );
 }
 
-export default QuestionsLoad;
+export default QuestionForm;

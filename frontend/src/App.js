@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Questions from "./components/Questions";
+import Feed from "./components/Feed";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path={["/questions", "/questions/:questionId"]}>
-            <Questions />
+            <Feed />
           </Route>
         </Switch>
       )}
