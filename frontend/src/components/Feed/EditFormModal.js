@@ -17,10 +17,6 @@ function EditFormModal({ question }) {
   const sessionUser = useSelector((state) => state.session.user);
 
 
-  const setEditedQuestionWrapper = (e) => {
-    setEditedQuestionContent(e.target.value);
-  };
-
   const handleEdit = async (e) => {
     e.preventDefault();
     const content = editedQuestionContent;
