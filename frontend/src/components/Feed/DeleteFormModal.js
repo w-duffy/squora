@@ -14,9 +14,13 @@ function DeleteFormModal({ question }) {
   const history = useHistory();
 
   const handleDelete = async (e) => {
-    await dispatch(deleteQuestion(question));
-    await dispatch(getQuestions());
-    setShowModal(false)
+    e.preventDefault()
+     let deleted = await dispatch(deleteQuestion(question));
+     await dispatch(getQuestions());
+     if(deleted){
+       await setShowModal(false)
+
+     }
   };
 
   return (

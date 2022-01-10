@@ -44,18 +44,19 @@ router.put(
       id,
       description: content,
     }
-  
+
     const update = await questionToUpdate.update(question)
     return res.json(update)
   })
 );
 
 router.delete(
-  "/:id",
+  "/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const { id } = req.body;
     const question = await Question.findByPk(id);
     await question.destroy()
+    res.json({deleted: true})
   })
 );
 

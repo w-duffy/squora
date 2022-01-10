@@ -15,10 +15,11 @@ const addQuestion = (questions) => ({
   questions,
 });
 
-const removeQuestion = (questions) => ({
+const removeQuestion = (questionId) => ({
   type: REMOVE_QUESTION,
-  questions,
+  questionId,
 });
+
 const putQuestion = (question) => ({
   type: EDIT_QUESTION,
   question,
@@ -49,9 +50,10 @@ export const deleteQuestion = (question) => async (dispatch) => {
     body: JSON.stringify(question),
   });
 
+  const deleted = await response.json()
   if (response.ok) {
-    dispatch(removeQuestion(question));
-    return question;
+    dispatch(removeQuestion(question.id));
+    // return true;
   }
 };
 
@@ -95,7 +97,16 @@ const questionsReducer = (state = initialState, action) => {
       newState.questions = [action.questions, ...state.questions];
       return newState;
     case REMOVE_QUESTION:
-      newState = { ...state };
+      newState = JSON.parse(JSON.stringify(state));
+      for (let i = 0; i < newState.questions.length; i++) {
+        if (newState.questions[i].id === action.questionId) {
+          console.log(newState.questions[i])
+          delete newState.questions[i];
+        }
+      }
+      // console.log(action.questionId)
+      // console.log(newState.questions)
+
       return newState;
     case EDIT_QUESTION:
       newState = JSON.parse(JSON.stringify(state));
