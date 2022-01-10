@@ -6,9 +6,11 @@ import { deleteQuestion } from "../../store/questions";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { getQuestions } from "../../store/questions";
+import { useSelector } from "react-redux";
 
 function DeleteFormModal({ question }) {
   const [showModal, setShowModal] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -19,26 +21,32 @@ function DeleteFormModal({ question }) {
      await dispatch(getQuestions());
      if(deleted){
        await setShowModal(false)
-
      }
   };
+  console.log(question.ownerId)
+  console.log(sessionUser.id)
+  if (sessionUser.id == question.ownerId){
 
-  return (
-    <>
+    return (
+      <>
       <button onClick={() => setShowModal(true)}>Delete</button>
+
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <div>
-            <h1>Delete question</h1>
-            <form onSubmit={handleDelete}>
-              <button type="submit">Confirm</button>
-              <button onClick={() => setShowModal(false)}>Cancel</button>
-            </form>
-          </div>
+        <div>
+        <h1>Delete question</h1>
+        <form onSubmit={handleDelete}>
+        <button type="submit">Confirm</button>
+        <button onClick={() => setShowModal(false)}>Cancel</button>
+        </form>
+        </div>
         </Modal>
-      )}
+        )}
     </>
   );
+} else return(
+  <></>
+)
 }
 
 export default DeleteFormModal;

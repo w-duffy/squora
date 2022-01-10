@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { editQuestion } from "../../store/questions";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function EditFormModal({ question }) {
   const [showModal, setShowModal] = useState(false);
@@ -13,6 +14,7 @@ function EditFormModal({ question }) {
   const [description, setDescription] = useState(question.description);
   const [id, setId] = useState(question.id);
   const [editedQuestionContent, setEditedQuestionContent] = useState(question.description);
+  const sessionUser = useSelector((state) => state.session.user);
 
 
   const setEditedQuestionWrapper = (e) => {
@@ -35,7 +37,7 @@ function EditFormModal({ question }) {
       setShowModal(false);
     }
   };
-
+  if (sessionUser.id == question.ownerId){
   return (
     <>
       <button onClick={() => setShowModal(true)}>Edit</button>
@@ -56,7 +58,10 @@ function EditFormModal({ question }) {
         </Modal>
       )}
     </>
-  );
-}
+  )}else return(
+    <></>
+  )
+  }
+
 
 export default EditFormModal;
