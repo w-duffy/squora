@@ -33,7 +33,7 @@ function Feed() {
   }
 
   return (
-    <main>
+
     <div>
         <QuestionForm />
       {questions.map((question) => (
@@ -45,7 +45,7 @@ function Feed() {
         </div>
       ))}
     </div>
-  </main>
+
   )
 }
 

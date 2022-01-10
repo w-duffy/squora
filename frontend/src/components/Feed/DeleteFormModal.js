@@ -23,8 +23,7 @@ function DeleteFormModal({ question }) {
        await setShowModal(false)
      }
   };
-  console.log(question.ownerId)
-  console.log(sessionUser.id)
+ 
   if (sessionUser.id == question.ownerId){
 
     return (

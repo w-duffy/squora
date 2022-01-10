@@ -9,7 +9,8 @@ import LoggedInRoute from "./components/Auth/LoggedInRoute";
 import Welcome from './components/Welcome'
 import {useHistory} from 'react-router-dom'
 import { useSelector } from "react-redux";
-
+import Follows from "./components/Follows";
+import Topics from "./components/Topics";
 
 function App() {
   const history = useHistory();
@@ -24,6 +25,8 @@ function App() {
   if(!sessionUser) {
   return (
     <>
+    <div className=".container">
+
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -35,13 +38,33 @@ function App() {
           </Route>
         </Switch>
       )}
+      </div>
     </>
+
   )} else return (
     <>
-    <Navigation isLoaded={isLoaded} />
+    <div className="container">
+
+    <div className="Header">
+    <Navigation isLoaded={true} />
+    </div>
+    <div className="Feed">
     <LoggedInRoute path={"/"}>
     <Feed />
     </LoggedInRoute>
+    </div>
+    <div className="Topics">
+    <LoggedInRoute path={"/"}>
+    <Topics />
+    </LoggedInRoute>
+    </div>
+    <div className="Follows">
+    <LoggedInRoute path={"/"}>
+    <Follows />
+    </LoggedInRoute>
+    </div>
+    </div>
+
     </>
   )
 
