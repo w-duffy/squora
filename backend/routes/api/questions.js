@@ -33,10 +33,23 @@ router.post(
 );
 
 
-router.post(
+router.put(
+  "/:id/edit",
+  asyncHandler(async (req, res) => {
+    const { id, description } = req.body;
+    const questionToUpdate = await Question.findByPk(id);
+
+    const question = {
+      description,
+    }
+    const update = await questionToUpdate.update(question)
+    return res.json(update)
+  })
+);
+
+router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
-    console.log("INROUTER")
     const { id } = req.body;
     const question = await Question.findByPk(id);
     await question.destroy()
