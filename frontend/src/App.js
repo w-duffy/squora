@@ -20,9 +20,9 @@ function App() {
         <Switch>
           <Route path="/signup">
             <SignupFormPage />
-          </Route>
-          <Route path={["/questions", "/questions/:questionId"]}>
-            <Feed />
+            </Route>
+            <Route path={["/questions", "/questions/:questionId"]}>
+              <Feed />
           </Route>
         </Switch>
       )}

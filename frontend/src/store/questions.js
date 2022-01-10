@@ -3,28 +3,46 @@ import { csrfFetch } from "./csrf";
 const LOAD_QUESTIONS = "questions/LOAD_QUESTIONS";
 const ADD_QUESTION = "questions/ADD_QUESTION";
 const REMOVE_QUESTION = "questions/REMOVE_QUESTION";
+const EDIT_QUESTION = "questions/EDIT_QUESTION";
 
 const loadQuestions = (questions) => ({
   type: LOAD_QUESTIONS,
   questions,
 });
 
-const addQuestion = questions =>({
+const addQuestion = (questions) => ({
   type: ADD_QUESTION,
   questions,
-})
+});
 
-const removeQuestion = questions => ({
+const removeQuestion = (questions) => ({
   type: REMOVE_QUESTION,
-  questions
-})
+  questions,
+});
+const putQuestion = (questions) => ({
+  type: EDIT_QUESTION,
+  questions,
+});
 
+export const editQuestion = (question) => async (dispatch) => {
+  const response = await csrfFetch(`/api/questions/${question.id}/edit`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(question),
+  });
 
-export const deleteQuestion = (question) => async dispatch => {
+  if (response.ok) {
+    const updatedQuestion = await response.json();
+    dispatch(putQuestion(updatedQuestion));
+    return updatedQuestion;
+  }
+};
+
+export const deleteQuestion = (question) => async (dispatch) => {
   const response = await csrfFetch(`/api/questions/${question.id}`, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(question)
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(question),
   });
 
   if (response.ok) {
@@ -33,20 +51,19 @@ export const deleteQuestion = (question) => async dispatch => {
   }
 };
 
-
-export const addQuestionForm = (payload) => async dispatch => {
+export const addQuestionForm = (payload) => async (dispatch) => {
   const response = await csrfFetch(`/api/questions`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-    'Content-Type': 'application/json'
-  },
-    body: JSON.stringify(payload)
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
   });
 
   if (response.ok) {
-    const list = await response.json();
-    dispatch(addQuestion(list));
-    return list;
+    const question = await response.json();
+    dispatch(addQuestion(question));
+    return question;
   }
 };
 
@@ -56,35 +73,32 @@ export const getQuestions = () => async (dispatch) => {
   if (response.ok) {
     const questions = await response.json();
     dispatch(loadQuestions(questions));
-    return questions;
   }
 };
 
-// const initialState = {
-//     questions: [],
-// };
-
-const initialState = {}
-
+const initialState = {};
 
 const questionsReducer = (state = initialState, action) => {
   let newState;
-
   switch (action.type) {
-    case LOAD_QUESTIONS: {
-        newState = { ...state }
-        newState.questions = action.questions
-        return newState
-      }
-    case ADD_QUESTION: {
-       newState = Object.assign({}, state)
-       newState = {...newState, ...action.payload}
-      return newState;
-    }
-    case REMOVE_QUESTION: {
+    case LOAD_QUESTIONS:
       newState = { ...state };
+      newState.questions = action.questions;
       return newState;
-    }
+    case ADD_QUESTION:
+      newState = Object.assign({}, state);
+      newState = { ...newState, ...action.payload };
+      return newState;
+    case REMOVE_QUESTION:
+      newState = { ...state };
+    case EDIT_QUESTION:
+      newState = { ...state };
+      for (let i = 0; i < newState.questions.length; i++) {
+        if (newState.questions[i].id === action.questions.id) {
+          newState.questions[i] = action.questions;
+        }
+      }
+      return newState;
     default:
       return state;
   }

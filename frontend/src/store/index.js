@@ -5,7 +5,7 @@ import questionsReducer from './questions';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  questionsReducer
+  questionsReducer,
 });
 
 let enhancer;

@@ -5,28 +5,29 @@ import questionsReducer, { getQuestions } from "../../store/questions";
 import { NavLink, Route, useParams } from "react-router-dom";
 import QuestionForm from '../Questions'
 import {deleteQuestion} from "../../store/questions"
+import DeleteFormModal from "./DeleteFormModal";
+import EditFormModal from "./EditFormModal";
 
 function Feed() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const [deleteClick, setDeleteClick] = useState(null);
+
 
   const questions = useSelector((state) => state.questionsReducer.questions);
   const [stateChange, setStateChange] = useState("no")
+
 
 
   useEffect(() => {
      dispatch(getQuestions());
   }, [stateChange]);
 
-  async function handleDeleteQuestion(question){
-    await dispatch(deleteQuestion(question))
-    await setStateChange("yes")
-  }
-
 
   if (!questions) {
     return null;
   }
+
 
   return (
     <main>
@@ -36,7 +37,8 @@ function Feed() {
         <div key={question.id + 1}>
             <p>{question.User.username}</p>
             <p>{question.description}</p>
-              <button onClick={() => handleDeleteQuestion(question)}>{question.id} Delete</button>
+            <DeleteFormModal question={question} />
+            <EditFormModal question={question} />
         </div>
       ))}
     </div>
