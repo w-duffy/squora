@@ -19,16 +19,20 @@ const removeQuestion = (questions) => ({
   type: REMOVE_QUESTION,
   questions,
 });
-const putQuestion = (questions) => ({
+const putQuestion = (question) => ({
   type: EDIT_QUESTION,
-  questions,
+  question,
 });
 
-export const editQuestion = (question) => async (dispatch) => {
-  const response = await csrfFetch(`/api/questions/${question.id}/edit`, {
+export const editQuestion = (editedQuestion) => async (dispatch) => {
+  const { id, content } = editedQuestion;
+  const response = await csrfFetch(`/api/questions/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(question),
+    body: JSON.stringify({
+      id,
+      content,
+    }),
   });
 
   if (response.ok) {
@@ -80,25 +84,27 @@ const initialState = {};
 
 const questionsReducer = (state = initialState, action) => {
   let newState;
+  let prevState;
   switch (action.type) {
     case LOAD_QUESTIONS:
       newState = { ...state };
       newState.questions = action.questions;
       return newState;
     case ADD_QUESTION:
-      newState = Object.assign({}, state);
-      newState = { ...newState, ...action.payload };
+      newState = { ...state };
+      newState.questions = [action.questions, ...state.questions];
       return newState;
     case REMOVE_QUESTION:
       newState = { ...state };
-    case EDIT_QUESTION:
-      newState = { ...state };
-      for (let i = 0; i < newState.questions.length; i++) {
-        if (newState.questions[i].id === action.questions.id) {
-          newState.questions[i] = action.questions;
-        }
-      }
       return newState;
+    case EDIT_QUESTION:
+      newState = JSON.parse(JSON.stringify(state));
+    for (let i = 0; i < newState.questions.length; i++) {
+      if (newState.questions[i].id === action.question.id) {
+        newState.questions[i] = action.question;
+      }
+    }
+    return newState;
     default:
       return state;
   }

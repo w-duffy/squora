@@ -18,7 +18,8 @@ const validateQuestion = [
 router.get(
   "/",
   asyncHandler(async (_req, res) => {
-    const question = await Question.findAll({ include: { model: User } });
+    // const question = await Question.findAll({ include: { model: User } });
+    const question = await Question.findAll();
     return res.json(question);
   })
 );
@@ -34,14 +35,16 @@ router.post(
 
 
 router.put(
-  "/:id/edit",
+  "/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    const { id, description } = req.body;
-    const questionToUpdate = await Question.findByPk(id);
+    const { id, content } = req.body;
 
+    const questionToUpdate = await Question.findByPk(id);
     const question = {
-      description,
+      id,
+      description: content,
     }
+  
     const update = await questionToUpdate.update(question)
     return res.json(update)
   })

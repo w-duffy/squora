@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import LoginForm from "./LoginForm";
-import DeleteForm from "../Feed/DeleteForm";
+
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);

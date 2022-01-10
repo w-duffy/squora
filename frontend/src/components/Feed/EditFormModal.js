@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
-import EditForm from "./EditForm";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { editQuestion } from "../../store/questions";
@@ -13,18 +12,28 @@ function EditFormModal({ question }) {
   const history = useHistory();
   const [description, setDescription] = useState(question.description);
   const [id, setId] = useState(question.id);
-  const setDescriptionWrapper = (e) => {
-    setDescription(e.target.value);
+  const [editedQuestionContent, setEditedQuestionContent] = useState(question.description);
+
+
+  const setEditedQuestionWrapper = (e) => {
+    setEditedQuestionContent(e.target.value);
   };
 
   const handleEdit = async (e) => {
     e.preventDefault();
+    const content = editedQuestionContent;
+    if (content === "") {
+      return null
+  }
     const editedQuestion = {
       id: question.id,
-      description,
+      content,
     };
-    await dispatch(editQuestion(editedQuestion));
-    setShowModal(false);
+
+    let editReturn = await dispatch(editQuestion(editedQuestion));
+    if(editReturn){
+      setShowModal(false);
+    }
   };
 
   return (
@@ -34,13 +43,13 @@ function EditFormModal({ question }) {
         <Modal onClose={() => setShowModal(false)}>
           <div>
             <h1>Edit Question</h1>
-            <form onSubmit={handleEdit}>
+            <form>
               <textarea
                 id="description_textarea"
-                value={description}
-                onChange={setDescriptionWrapper}
+                value={editedQuestionContent}
+                onChange={e => setEditedQuestionContent(e.target.value)}
               ></textarea>
-              <button type="submit">Save</button>
+              <button onClick={(e) => handleEdit(e, question.id)}>Save</button>
               <button onClick={() => setShowModal(false)}>Cancel</button>
             </form>
           </div>

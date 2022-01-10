@@ -7,27 +7,30 @@ import QuestionForm from '../Questions'
 import {deleteQuestion} from "../../store/questions"
 import DeleteFormModal from "./DeleteFormModal";
 import EditFormModal from "./EditFormModal";
+import { useHistory } from "react-router-dom";
 
 function Feed() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const [deleteClick, setDeleteClick] = useState(null);
 
+  const history = useHistory();
 
-  const questions = useSelector((state) => state.questionsReducer.questions);
+
+  const questions = useSelector(state => state.questions.questions);
+
   const [stateChange, setStateChange] = useState("no")
 
 
 
   useEffect(() => {
      dispatch(getQuestions());
-  }, [stateChange]);
+  }, []);
 
 
   if (!questions) {
     return null;
   }
-
 
   return (
     <main>
@@ -35,7 +38,7 @@ function Feed() {
         <QuestionForm />
       {questions.map((question) => (
         <div key={question.id + 1}>
-            <p>{question.User.username}</p>
+            {/* <p>{question.User.username}</p> */}
             <p>{question.description}</p>
             <DeleteFormModal question={question} />
             <EditFormModal question={question} />
