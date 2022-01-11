@@ -48,6 +48,9 @@ function Feed() {
   if (!questions) {
     return null;
   }
+  const sortedQuestions = questions.sort(function (a, b) {
+    return new Date(b.createdAt) - new Date(a.createdAt)
+  })
 
   if (loaded) {
     return (
@@ -55,7 +58,7 @@ function Feed() {
         <div className="ask-question">
           <QuestionModal />
         </div>
-        {questions.map((question) => (
+        {sortedQuestions.map((question) => (
           <div className="ask-question" key={question.id}>
             <div className="feed-content">
               {users.map((user) =>

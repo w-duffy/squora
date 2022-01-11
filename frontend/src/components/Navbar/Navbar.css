@@ -30,4 +30,7 @@
 .nav-title{
     color:  #b80e0e;
     font-weight: 1000;
+    text-decoration: none;
+    font-size: xx-large;
+    cursor: pointer;
 }

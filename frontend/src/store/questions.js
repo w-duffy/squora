@@ -89,7 +89,7 @@ const questionsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case LOAD_QUESTIONS:
-      newState = { ...state };
+      newState = {...state} 
       newState.questions = action.questions;
       return newState;
     case ADD_QUESTION:

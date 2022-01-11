@@ -11,10 +11,10 @@ const Navbar = () => {
   return (
     <div className="nav-container">
       <div>
-        <h1 className="nav-title">Squora</h1>
+        <NavLink to="/" className="nav-title">Squora</NavLink>
       </div>
       <div>
-        <NavLink to="/">Home</NavLink>
+        <p>Welcome {sessionUser.username}</p>
       </div>
 
       <div>
