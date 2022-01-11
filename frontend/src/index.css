@@ -75,7 +75,7 @@ html {
     height: 700px;
     grid-auto-columns: 1fr;
     grid-template-columns: 1.25fr 1fr 1fr 1.25fr;
-    grid-template-rows: 2fr 2fr .5fr 1.5fr;
+    grid-template-rows: 2fr 2.5fr .7fr 1.5fr;
     gap: 0px 0px;
     grid-template-areas:
       ". Title Title ."
@@ -100,19 +100,19 @@ html {
   .Title > h1 {
     color:  #b80e0e;
     font-size: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 20px;
   }
   .Title > div > p {
-        font-size: large;
+        font-size: 18px;
         font: "Lucida Grande", Helvetica, Arial, sans-serif;
-        color: gray;
+        color: rgb(110, 110, 110);
         font-weight: bold;
         padding-left: 10px;
         margin-top: 10px;
   }
   .Links{
-    background: white;
+    background: rgb(240, 240, 240);
       border-top: solid rgb(221, 221, 221) 1px;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
@@ -141,12 +141,19 @@ html {
   .Buttons{
       padding-left: 25px;
     background: white;
+
 }
 .Description{
     background: white;
     border-right: 1px solid rgb(221, 221, 221);
-    border-image: linear-gradient(to bottom, rgb(221, 221, 221) 80%, rgba(0,0,0,0) 75%);
+    border-image: linear-gradient(to bottom, rgb(221, 221, 221) 90%, rgba(0,0,0,0) 75%);
     border-image-slice: 1;
-    display: flex;
-    justify-content: center;
+    padding-right: 0px;
+    padding-left: 50px;
+    padding-bottom: 25px;
+}
+.signup-button{
+  display: flex;
+  justify-content: flex-start;
+
 }

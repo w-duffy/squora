@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import Follows from "./components/Follows";
 import Topics from "./components/Topics";
 import Navbar from "./components/Navbar/Navbar";
+import { NavLink } from 'react-router-dom';
 
 function App() {
   const history = useHistory();
@@ -76,13 +77,14 @@ function App() {
             {isLoaded && (
               <Switch>
                 <Route path="/signup">
-                  <SignupFormPage />
+                  {/* <SignupFormPage /> */}
                 </Route>
               </Switch>
             )}
           </div>
           <div className="Description">
-            test
+            <SignupFormPage />
+
           </div>
         </div>
       </>
