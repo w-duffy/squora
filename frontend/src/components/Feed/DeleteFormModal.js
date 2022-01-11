@@ -23,7 +23,7 @@ function DeleteFormModal({ question }) {
        await setShowModal(false)
      }
   };
- 
+
   if (sessionUser.id == question.ownerId){
 
     return (

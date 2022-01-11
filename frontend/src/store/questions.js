@@ -82,6 +82,7 @@ export const getQuestions = () => async (dispatch) => {
   }
 };
 
+
 const initialState = {};
 
 const questionsReducer = (state = initialState, action) => {
@@ -100,7 +101,6 @@ const questionsReducer = (state = initialState, action) => {
       newState = JSON.parse(JSON.stringify(state));
       for (let i = 0; i < newState.questions.length; i++) {
         if (newState.questions[i].id === action.questionId) {
-          console.log(newState.questions[i])
           delete newState.questions[i];
         }
       }

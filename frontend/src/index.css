@@ -1,7 +1,10 @@
 /* TODO Add site wide styles */
 .container {
+    background: rgb(231, 229, 229);
+    height: 100vw;
+    width: 100vw;
     display: grid;
-    grid-template-columns: 0.7fr 570px 0.6fr;
+    grid-template-columns: 0.7fr 500px 0.6fr;
     grid-template-rows: 54px 6.2fr;
     gap: 0px 30px;
     grid-template-areas:
@@ -17,7 +20,14 @@
       z-index: 10;
       display: inline-flex;
       justify-content: center;
+      background: white;
+      border-bottom: lightgray 1px solid;
+      box-shadow: 0px 0px 3px 0px lightgray;
+
   }
+.Feed, .Topics, .Follow {
+    margin-top: 25px;
+}
 
 
   /* <div class="container">
@@ -28,13 +38,19 @@
 </div> */
 html, body{
     height: 100vw;
+    margin: 0px;
+    padding: 0px;
 }
+
 .root{
     height: 100vw;
+    z-index: 1;
+    background: gray;
 }
 
 html {
     background-image: url("https://www.wealthandfinance-news.com/wp-content/uploads/2020/10/stocks.jpg");
+    z-index: -1;
 }
 
   .Welcome-container {
@@ -76,7 +92,3 @@ html {
     background: rgb(230, 230, 230);
     border-top: solid rgb(145, 144, 144) 1px;
 }
-
-  body{
-      background: none;
-  }

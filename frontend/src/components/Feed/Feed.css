@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: grid;
     grid-template-columns: 0.7fr 570px 0.6fr;
     grid-template-rows: 54px 6.2fr;
@@ -11,3 +11,20 @@
   .Feed { grid-area: Feed; }
   .Topics { grid-area: Topics; }
   .Follow { grid-area: Follow; }
+
+   */
+
+
+div.ask-question{
+    display: flex;
+    width: 100%;
+    background: white;
+    border: solid lightgray 1.5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 2px 0px lightgray;
+}
+
+.p-description {
+    padding-left: 5px;
+}
