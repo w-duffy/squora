@@ -27,6 +27,11 @@ function QuestionModal() {
       ownerId,
       description,
     };
+    let idx = description.indexOf("?")
+    let length = description.length - 1
+    if ( idx !== length){
+      return setErrors(["Your question must end with a question mark."]);
+    }
     if (description === "") {
       return setErrors(["You cannot submit a blank question."]);
     }
@@ -35,6 +40,7 @@ function QuestionModal() {
     if (createdQuestion) {
       setDescription("");
       setShowModal(false);
+      setErrors([])
     }
   };
 

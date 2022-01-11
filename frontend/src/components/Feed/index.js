@@ -47,17 +47,17 @@ if (loaded){
       </div>
       {questions.map((question) => (
         <div className="ask-question" key={question.id}>
-          <div>
+          <div className="feed-content">
             {users.map((user) => (user.id === question.ownerId?
-              <div key={Math.random()}>
-              <p>{user.username}</p>
+              <div className="feed-content" key={Math.random()}>
+              <p className="username">{user.username} asked: </p>
               </div>
               : <div key={Math.random()}></div>
               ))}
-              </div>
             <div>
-              <div>
+              <div className="feed-content">
             <p className="p-description">{question.description}</p>
+              </div>
               </div>
             <DeleteFormModal question={question} />
             <EditFormModal question={question} />

@@ -22,9 +22,17 @@ function EditFormModal({ question }) {
   const handleEdit = async (e) => {
     e.preventDefault();
     const content = editedQuestionContent;
+    let idx = content.indexOf("?")
+    let length = content.length - 1
+
+    if ( idx !== length){
+      return setErrors(["Your question must end with a question mark."]);
+    }
+
     if (content === "") {
       return setErrors(["You cannot submit a blank question."]);
     }
+    
     const editedQuestion = {
       id: question.id,
       content,
