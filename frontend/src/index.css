@@ -12,7 +12,71 @@
   .Feed { grid-area: Feed; }
   .Topics { grid-area: Topics; }
   .Follow { grid-area: Follow; }
-  
+
   .Header {
       z-index: 10;
+      display: inline-flex;
+      justify-content: center;
+  }
+
+
+  /* <div class="container">
+  <div class="Title"></div>
+  <div class="Links"></div>
+  <div class="Buttons"></div>
+  <div class="Description"></div>
+</div> */
+html, body{
+    height: 100vw;
+}
+.root{
+    height: 100vw;
+}
+
+html {
+    background-image: url("https://www.wealthandfinance-news.com/wp-content/uploads/2020/10/stocks.jpg");
+}
+
+  .Welcome-container {
+    background: none;
+    display: grid;
+    margin-top: 150px;
+    height: 700px;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1.25fr 1fr 1fr 1.25fr;
+    grid-template-rows: 2fr 3fr .5fr 1.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". Title Title ."
+      ". Description Buttons ."
+      ". Links Links ."
+      ". . . .";
+  }
+  .Title { grid-area: Title; }
+  .Links { grid-area: Links; }
+  .Buttons { grid-area: Buttons; }
+  .Description { grid-area: Description; }
+
+  .Title {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      background: rgb(230, 230, 230);
+  }
+  .Links{
+      background: rgb(230, 230, 230);
+      border-top: solid rgb(145, 144, 144) 1px;
+  }
+  .Buttons{
+    background: rgb(230, 230, 230);
+    border-top: solid rgb(145, 144, 144) 1px;
+    border-left: solid rgb(145, 144, 144) 1px;
+}
+.Description{
+    background: rgb(230, 230, 230);
+    border-top: solid rgb(145, 144, 144) 1px;
+}
+
+  body{
+      background: none;
   }

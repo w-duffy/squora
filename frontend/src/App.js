@@ -6,8 +6,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Feed from "./components/Feed";
 import LoggedInRoute from "./components/Auth/LoggedInRoute";
-import Welcome from './components/Welcome'
-import {useHistory} from 'react-router-dom'
+import Welcome from "./components/Welcome";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Follows from "./components/Follows";
 import Topics from "./components/Topics";
@@ -20,54 +20,62 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector((state) => state.session.user);
 
-  if(!sessionUser) {
-  return (
-    <>
-    <div className=".container">
-
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/" exact={true}>
+  if (!sessionUser) {
+    return (
+      <>
+        <div className="Welcome-container">
+          <div className="Title">
+            test
+          </div>
+          <div className="Links">
+            test
+          </div>
+          <div className="Buttons">
+            <Navigation isLoaded={isLoaded} />
+            {isLoaded && (
+              <Switch>
+                <Route path="/signup">
+                  <SignupFormPage />
+                </Route>
+              </Switch>
+            )}
+          {/* <Route path="/" exact={true}>
             <Welcome />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-        </Switch>
-      )}
-      </div>
-    </>
-
-  )} else return (
-    <>
-    <div className="container">
-
-    <div className="Header">
-    <Navigation isLoaded={true} />
-    </div>
-    <div className="Feed">
-    <LoggedInRoute path={"/"}>
-    <Feed />
-    </LoggedInRoute>
-    </div>
-    <div className="Topics">
-    <LoggedInRoute path={"/"}>
-    <Topics />
-    </LoggedInRoute>
-    </div>
-    <div className="Follows">
-    <LoggedInRoute path={"/"}>
-    <Follows />
-    </LoggedInRoute>
-    </div>
-    </div>
-
-    </>
-  )
-
+          </Route> */}
+          </div>
+          <div className="Description">
+            test
+          </div>
+        </div>
+      </>
+    );
+  } else
+    return (
+      <>
+        <div className="container">
+          <div className="Header">
+            <Navigation isLoaded={true} />
+          </div>
+          <div className="Feed">
+            <LoggedInRoute path={"/"}>
+              <Feed />
+            </LoggedInRoute>
+          </div>
+          <div className="Topics">
+            <LoggedInRoute path={"/"}>
+              <Topics />
+            </LoggedInRoute>
+          </div>
+          <div className="Follows">
+            <LoggedInRoute path={"/"}>
+              <Follows />
+            </LoggedInRoute>
+          </div>
+        </div>
+      </>
+    );
 }
 
 export default App;
