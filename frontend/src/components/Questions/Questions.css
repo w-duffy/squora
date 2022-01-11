@@ -13,15 +13,16 @@
 
 .p-question {
     font-size: larger;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
     color: gray;
     font-weight: bold;
-    padding-left: 5px;
-    margin-top: 5px;
+    padding-left: 10px;
+    margin-top: 10px;
 }
 .d-username{
-    padding-left: 5px;
-    font: smaller;
+    padding-left: 10px;
+    font: smaller "Lucida Grande", Helvetica, Arial, sans-serif;
     font-weight: lighter;
     color: gray;
-    padding-top: 5px;;
+    padding-top: 15px;;
 }

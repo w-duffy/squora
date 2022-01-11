@@ -53,6 +53,13 @@ html {
     z-index: -1;
 }
 
+@media screen and (max-height: 1000px) {
+    html{
+    background-color: rgb(231, 229, 229);
+    background-image: none;
+    }
+}
+
   .Welcome-container {
     background: none;
     display: grid;

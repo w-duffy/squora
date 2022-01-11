@@ -48,7 +48,7 @@ function QuestionModal() {
     <>
       <div onClick={() => setShowModal(true)} className="question-click">
         <div className="d-username">{sessionUser.username}</div>
-        <p className="p-question">What is your Question?</p>
+        <p className="p-question">What do you want to ask?</p>
       </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
