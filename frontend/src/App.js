@@ -27,7 +27,10 @@ function App() {
       <>
         <div className="Welcome-container">
           <div className="Title">
-            test
+            <h1>Squora</h1>
+            <div>
+            <p>A place to share investing knowledge and better understand the market</p>
+            </div>
           </div>
           <div className="Links">
             test

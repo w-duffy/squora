@@ -90,11 +90,26 @@ html {
 
   .Title {
       display:flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: white;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+  }
+  .Title > h1 {
+    color:  #b80e0e;
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .Title > div > p {
+        font-size: large;
+        font: "Lucida Grande", Helvetica, Arial, sans-serif;
+        color: gray;
+        font-weight: bold;
+        padding-left: 10px;
+        margin-top: 10px;
   }
   .Links{
     background: white;
@@ -104,10 +119,10 @@ html {
     }
   .Buttons{
     background: white;
-    border-top: solid rgb(221, 221, 221) 1px;
-    border-left: solid rgb(221, 221, 221) 1px;
 }
 .Description{
     background: white;
-    border-top: solid rgb(221, 221, 221) 1px;
+    border-right: 1px solid rgb(221, 221, 221);
+    border-image: linear-gradient(to bottom, rgb(221, 221, 221) 80%, rgba(0,0,0,0) 75%);
+    border-image-slice: 1;
 }
