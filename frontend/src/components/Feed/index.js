@@ -47,12 +47,14 @@ if (loaded){
       </div>
       {questions.map((question) => (
         <div className="ask-question" key={question.id}>
+          <div>
             {users.map((user) => (user.id === question.ownerId?
               <div key={Math.random()}>
               <p>{user.username}</p>
               </div>
-              : <></>
+              : <div key={Math.random()}></div>
               ))}
+              </div>
             <div>
               <div>
             <p className="p-description">{question.description}</p>
