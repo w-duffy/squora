@@ -6,11 +6,11 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Feed from "./components/Feed";
 import LoggedInRoute from "./components/Auth/LoggedInRoute";
-import Welcome from "./components/Welcome";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Follows from "./components/Follows";
 import Topics from "./components/Topics";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const history = useHistory();
@@ -41,9 +41,6 @@ function App() {
                 </Route>
               </Switch>
             )}
-          {/* <Route path="/" exact={true}>
-            <Welcome />
-          </Route> */}
           </div>
           <div className="Description">
             test
@@ -56,7 +53,7 @@ function App() {
       <>
         <div className="container">
           <div className="Header">
-            <Navigation isLoaded={true} />
+            <Navbar />
           </div>
           <div className="Feed">
             <LoggedInRoute path={"/"}>

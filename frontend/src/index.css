@@ -4,8 +4,8 @@
     height: 100vw;
     width: 100vw;
     display: grid;
-    grid-template-columns: 0.7fr 500px 0.6fr;
-    grid-template-rows: 54px 6.2fr;
+    grid-template-columns: 0.6fr 500px 0.6fr;
+    grid-template-rows: 60px 6.2fr;
     gap: 0px 30px;
     grid-template-areas:
       "Header Header Header"
@@ -18,8 +18,7 @@
 
   .Header {
       z-index: 10;
-      display: inline-flex;
-      justify-content: center;
+      display: flex;
       background: white;
       border-bottom: lightgray 1px solid;
       box-shadow: 0px 0px 3px 0px lightgray;
@@ -55,6 +54,13 @@ html {
 }
 
 @media screen and (max-height: 900px) {
+    html{
+    background-color: rgb(231, 229, 229);
+    background-image: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
     html{
     background-color: rgb(231, 229, 229);
     background-image: none;

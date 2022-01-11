@@ -1,0 +1,19 @@
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 400px;
+    padding-right: 400px;
+}
+
+@media screen and (max-width: 1300px ) {
+    .nav-container{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+}
