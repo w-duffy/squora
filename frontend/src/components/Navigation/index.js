@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import {Route} from 'react-router-dom'
 import Feed from '../Feed'
+import Login from '../Login'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -19,7 +20,7 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
+        <Login />
         <NavLink to="/signup">Sign Up</NavLink>
       </>
     );
@@ -27,12 +28,8 @@ function Navigation({ isLoaded }){
 
   return (
     <div>
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+        {/* <NavLink exact to="/">Home</NavLink> */}
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
     </div>
   );
 }

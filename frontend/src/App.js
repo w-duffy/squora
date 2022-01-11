@@ -29,7 +29,7 @@ function App() {
           <div className="Title">
             <h1>Squora</h1>
             <div>
-            <p>A place to share investing knowledge and better understand the market</p>
+            <p>A place to share investing knowledge and better understand the markets</p>
             </div>
           </div>
           <div className="Links">
