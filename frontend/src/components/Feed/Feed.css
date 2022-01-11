@@ -43,6 +43,7 @@ div.feed-content {
     color: black;
     padding-top: 5px;;
 }
+
 p.username{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -50,5 +51,10 @@ p.username{
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     font-weight: light;
     color: black;
-    padding-top: 5px;;
+    padding-top: 5px;
+}
+
+.edit-delete{
+    display: flex;
+    justify-content: flex-end;
 }

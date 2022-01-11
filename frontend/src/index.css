@@ -37,7 +37,7 @@
   <div class="Description"></div>
 </div> */
 html, body{
-    height: 100vw;
+    height: 100%;
     margin: 0px;
     padding: 0px;
 }
@@ -50,10 +50,11 @@ html, body{
 
 html {
     background-image: url("https://www.wealthandfinance-news.com/wp-content/uploads/2020/10/stocks.jpg");
+    opacity: .95;
     z-index: -1;
 }
 
-@media screen and (max-height: 1000px) {
+@media screen and (max-height: 900px) {
     html{
     background-color: rgb(231, 229, 229);
     background-image: none;
@@ -62,6 +63,7 @@ html {
 
   .Welcome-container {
     background: none;
+    border-radius: 30px;
     display: grid;
     margin-top: 150px;
     height: 700px;
@@ -84,18 +86,22 @@ html {
       display:flex;
       justify-content: center;
       align-items: center;
-      background: rgb(230, 230, 230);
+      background: white;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
   }
   .Links{
-      background: rgb(230, 230, 230);
-      border-top: solid rgb(145, 144, 144) 1px;
-  }
+    background: white;
+      border-top: solid rgb(221, 221, 221) 1px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
   .Buttons{
-    background: rgb(230, 230, 230);
-    border-top: solid rgb(145, 144, 144) 1px;
-    border-left: solid rgb(145, 144, 144) 1px;
+    background: white;
+    border-top: solid rgb(221, 221, 221) 1px;
+    border-left: solid rgb(221, 221, 221) 1px;
 }
 .Description{
-    background: rgb(230, 230, 230);
-    border-top: solid rgb(145, 144, 144) 1px;
+    background: white;
+    border-top: solid rgb(221, 221, 221) 1px;
 }
