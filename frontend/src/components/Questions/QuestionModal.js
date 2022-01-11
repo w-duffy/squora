@@ -27,46 +27,46 @@ function QuestionModal() {
       ownerId,
       description,
     };
-    if(description === ""){
-        return setErrors(["You cannot submit a blank question."])
+    if (description === "") {
+      return setErrors(["You cannot submit a blank question."]);
     }
 
     let createdQuestion = await dispatch(addQuestionForm(payload));
     if (createdQuestion) {
       setDescription("");
-      setShowModal(false)
+      setShowModal(false);
     }
   };
 
-    return (
-      <>
+  return (
+    <>
       <div onClick={() => setShowModal(true)} className="question-click">
-        <div className="d-username">
-        {sessionUser.username}
-        </div>
+        <div className="d-username">{sessionUser.username}</div>
         <p className="p-question">What is your Question?</p>
-        </div>
-        {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
-            <div id="question-container">
-              What is your question?
-              <form onSubmit={postQuestion}>
-                  <ul>
-                      {errors.map((error) => <li key={error}>{error}</li>)}
-                  </ul>
-                <textarea
-                  id="description_textarea"
-                  placeholder={"What is your question or link?"}
-                  value={description}
-                  onChange={setDescriptionWrapper}
-                  ></textarea>
-                <button type="submit">Add Question</button>
-              </form>
-            </div>
-          </Modal>
-        )}
-      </>
-    );
+      </div>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <div id="question-container">
+            What is your question?
+            <form onSubmit={postQuestion}>
+              <ul>
+                {errors.map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+              <textarea
+                id="description_textarea"
+                placeholder={"What is your question or link?"}
+                value={description}
+                onChange={setDescriptionWrapper}
+              ></textarea>
+              <button type="submit">Add Question</button>
+            </form>
+          </div>
+        </Modal>
+      )}
+    </>
+  );
 }
 
 export default QuestionModal;

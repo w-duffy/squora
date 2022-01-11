@@ -13,51 +13,58 @@ function EditFormModal({ question }) {
   const history = useHistory();
   const [description, setDescription] = useState(question.description);
   const [id, setId] = useState(question.id);
-  const [editedQuestionContent, setEditedQuestionContent] = useState(question.description);
+  const [editedQuestionContent, setEditedQuestionContent] = useState(
+    question.description
+  );
   const sessionUser = useSelector((state) => state.session.user);
-
+  const [errors, setErrors] = useState([]);
 
   const handleEdit = async (e) => {
     e.preventDefault();
     const content = editedQuestionContent;
     if (content === "") {
-      return null
-  }
+      return setErrors(["You cannot submit a blank question."]);
+    }
     const editedQuestion = {
       id: question.id,
       content,
     };
 
     let editReturn = await dispatch(editQuestion(editedQuestion));
-    if(editReturn){
+    if (editReturn) {
       setShowModal(false);
     }
   };
-  if (sessionUser.id == question.ownerId){
-  return (
-    <>
-      <button onClick={() => setShowModal(true)}>Edit</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <div>
-            <h1>Edit Question</h1>
-            <form>
-              <textarea
-                id="description_textarea"
-                value={editedQuestionContent}
-                onChange={e => setEditedQuestionContent(e.target.value)}
-              ></textarea>
-              <button onClick={(e) => handleEdit(e, question.id)}>Save</button>
-              <button onClick={() => setShowModal(false)}>Cancel</button>
-            </form>
-          </div>
-        </Modal>
-      )}
-    </>
-  )}else return(
-    <></>
-  )
-  }
-
+  if (sessionUser.id == question.ownerId) {
+    return (
+      <>
+        <button onClick={() => setShowModal(true)}>Edit</button>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <div>
+              <h1>Edit Question</h1>
+              <form>
+                <ul>
+                  {errors.map((error) => (
+                    <li key={error}>{error}</li>
+                  ))}
+                </ul>
+                <textarea
+                  id="description_textarea"
+                  value={editedQuestionContent}
+                  onChange={(e) => setEditedQuestionContent(e.target.value)}
+                ></textarea>
+                <button onClick={(e) => handleEdit(e, question.id)}>
+                  Save
+                </button>
+                <button onClick={() => setShowModal(false)}>Cancel</button>
+              </form>
+            </div>
+          </Modal>
+        )}
+      </>
+    );
+  } else return <></>;
+}
 
 export default EditFormModal;
