@@ -75,7 +75,7 @@ html {
     height: 700px;
     grid-auto-columns: 1fr;
     grid-template-columns: 1.25fr 1fr 1fr 1.25fr;
-    grid-template-rows: 2fr 2.5fr .5fr 1.5fr;
+    grid-template-rows: 2fr 2fr .5fr 1.5fr;
     gap: 0px 0px;
     grid-template-areas:
       ". Title Title ."
@@ -135,7 +135,7 @@ html {
       margin-right: 10px;
       height: 20px;
       width: 100px;
-      
+
     }
 
   .Buttons{
@@ -147,4 +147,6 @@ html {
     border-right: 1px solid rgb(221, 221, 221);
     border-image: linear-gradient(to bottom, rgb(221, 221, 221) 80%, rgba(0,0,0,0) 75%);
     border-image-slice: 1;
+    display: flex;
+    justify-content: center;
 }

@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-
+import "./Login.css";
 
 function Login() {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
+  const user = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,14 +18,23 @@ function Login() {
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
-       }
+      }
     );
+  };
+
+  const demoUserLogin = async (e) => {
+    e.preventDefault();
+
+     await dispatch(
+      sessionActions.login({ credential: "user1", password: "password1" })
+    ).catch((res) => {
+      if (res.data && res.data.errors) setErrors(res.data.errors);
+    });
   };
 
   if (user) {
     return <Redirect to="/" />;
   }
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -35,32 +43,44 @@ function Login() {
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
-        Username
-        <div>
-        <input
-          type="text"
-          placeholder="Your username"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-          />
-          </div>
-      </label>
-      <label>
-        Password
-        <div>
+      <div className="splash-login">
+        <p>Login</p>
+      </div>
 
-        <input
-          type="password"
-          placeholder="Your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+      <label>
+        <p className="user-pass">Username</p>
+        <div>
+          <input
+            className="input-box"
+            type="text"
+            placeholder="Your username"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
           />
-          </div>
+        </div>
       </label>
-      <button type="submit">Log In</button>
+      <label>
+        <p className="user-pass">Password</p>
+        <div>
+          <input
+            className="input-box"
+            type="password"
+            placeholder="Your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+      </label>
+      <div className="button-div">
+        <button className="login-button" onClick={demoUserLogin}>
+          Demo User
+        </button>
+        <button className="login-button" type="submit">
+          Log In
+        </button>
+      </div>
     </form>
   );
 }

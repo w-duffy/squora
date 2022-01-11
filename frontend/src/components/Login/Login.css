@@ -1,0 +1,49 @@
+.splash-login > p{
+    margin-top: -15px;
+    font-weight: 400;
+    font-size: 19px;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.splash-login{
+    border-bottom: 1px solid rgb(221, 221, 221);
+    /* border-image: linear-gradient(to bottom, rgb(3, 3, 3) 100%, rgba(0,0,0,0) 50%); */
+
+    border-image: linear-gradient(to right,rgb(221, 221, 221) 75%, rgba(0,0,0,0) 50%);
+    border-image-slice: 1;
+    margin-bottom: 10px;
+}
+
+.user-pass{
+    color: black;
+    font-weight: 1000;
+    margin-bottom: 3px;
+    margin-top: 15px;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.input-box{
+    height: 30px;
+    width: 75%;
+    border: 1px solid rgb(221, 221, 221);
+}
+.login-button{
+    margin-top: 10px;
+    justify-content: flex-end;
+    background-color: #b80e0e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 1px 18px;
+    border-radius: 20px;
+    border: 0;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.button-div{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+}
