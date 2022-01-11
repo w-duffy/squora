@@ -36,22 +36,29 @@ function Login() {
         ))}
       </ul>
       <label>
-        Username or Email
+        Username
+        <div>
         <input
           type="text"
+          placeholder="Your username"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
-        />
+          />
+          </div>
       </label>
       <label>
         Password
+        <div>
+
         <input
           type="password"
+          placeholder="Your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-        />
+          />
+          </div>
       </label>
       <button type="submit">Log In</button>
     </form>

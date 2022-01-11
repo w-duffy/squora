@@ -75,7 +75,7 @@ html {
     height: 700px;
     grid-auto-columns: 1fr;
     grid-template-columns: 1.25fr 1fr 1fr 1.25fr;
-    grid-template-rows: 2fr 3fr .5fr 1.5fr;
+    grid-template-rows: 2fr 2.5fr .5fr 1.5fr;
     gap: 0px 0px;
     grid-template-areas:
       ". Title Title ."
@@ -118,6 +118,7 @@ html {
       border-bottom-right-radius: 5px;
     }
   .Buttons{
+      padding-left: 25px;
     background: white;
 }
 .Description{
