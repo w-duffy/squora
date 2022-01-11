@@ -3,34 +3,27 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Navbar.css";
 import ProfileButton from "../Navigation/ProfileButton";
+import QuestionModal from "../Questions/QuestionModal";
 
 const Navbar = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
   return (
     <div className="nav-container">
-
-
       <div>
-        <h1>Squora</h1>
+        <h1 className="nav-title">Squora</h1>
       </div>
       <div>
-          <NavLink to="/">
-          Home
-          </NavLink>
+        <NavLink to="/">Home</NavLink>
       </div>
-
 
       <div>
         <ProfileButton user={sessionUser} />
       </div>
+      <div>Search Squora</div>
       <div>
-        Search Squora
+        <button className="nav-button">Add question</button>
       </div>
-      <div>
-          <button>Add question</button>
-      </div>
-
     </div>
   );
 };

@@ -15,5 +15,19 @@
         padding-left: 0px;
         padding-right: 0px;
     }
-
+}
+.nav-button{
+    background-color: #b80e0e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 1px 18px;
+    border-radius: 20px;
+    border: 0;
+    height: 2rem;
+    cursor: pointer;
+}
+.nav-title{
+    color:  #b80e0e;
+    font-weight: 1000;
 }
