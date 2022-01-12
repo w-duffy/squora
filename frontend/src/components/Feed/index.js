@@ -20,12 +20,12 @@ function Feed() {
   const openMenu = () => {
     if (!showMenu) {
       setShowMenu(true);
-      setOpenClose("Close")
+      setOpenClose("Close");
       return;
     }
     if (showMenu) {
       setShowMenu(false);
-      setOpenClose("Open")
+      setOpenClose("Open");
       return;
     }
   };
@@ -34,7 +34,6 @@ function Feed() {
 
   const questions = useSelector((state) => state.questions.questions);
   const users = useSelector((state) => state.users.users);
-
 
   useEffect(async () => {
     await dispatch(getUsers());
@@ -46,8 +45,8 @@ function Feed() {
     return null;
   }
   const sortedQuestions = questions.sort(function (a, b) {
-    return new Date(b.createdAt) - new Date(a.createdAt)
-  })
+    return new Date(b.createdAt) - new Date(a.createdAt);
+  });
 
   if (loaded) {
     return (
@@ -61,7 +60,15 @@ function Feed() {
               {users.map((user) =>
                 user.id === question.ownerId ? (
                   <div className="feed-content" key={Math.random()}>
+                    <div className="profile-info">
+
+                    <img
+                      className="feed-profile-pic"
+                      src={`${user.profilePicture}`}
+                      alt="User profile pic"
+                      />
                     <p className="username">{user.username} asked: </p>
+                      </div>
                   </div>
                 ) : (
                   <div key={Math.random()}></div>
@@ -69,17 +76,16 @@ function Feed() {
               )}
               <div>
                 <div>
-
-                <div className="feed-content">
-                  <p className="p-description">{question.description}</p>
-                </div>
-              </div>
-              <div className="edit-delete">
-                  <div>
-                  <EditDeleteButtons question={question}/>
+                  <div className="feed-content">
+                    <p className="p-description">{question.description}</p>
                   </div>
-              </div>
                 </div>
+                <div className="edit-delete">
+                  <div>
+                    <EditDeleteButtons question={question} />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}

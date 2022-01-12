@@ -50,10 +50,10 @@ html, body{
 html {
     background-image: url("https://www.wealthandfinance-news.com/wp-content/uploads/2020/10/stocks.jpg");
     opacity: .95;
-    z-index: -1;
+    z-index: 200;
 }
 
-@media screen and (max-height: 900px) {
+/* @media screen and (max-height: 900px) {
     html{
     background-color: rgb(231, 229, 229);
     background-image: none;
@@ -65,7 +65,7 @@ html {
     background-color: rgb(231, 229, 229);
     background-image: none;
     }
-}
+} */
 
   .Welcome-container {
     background: none;
