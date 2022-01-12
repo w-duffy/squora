@@ -1,9 +1,15 @@
 {
-  "short_name": "React Template",
-  "name": "Create React App Template",
+  "short_name": "Squora",
+  "name": "Squora",
+  "icons": [
+    {
+      "src": "O_Mankowski_Investing_ST-900x702.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
-
