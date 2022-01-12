@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { useHistory } from "react-router-dom";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 
 function ProfileButton({ user }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [loaded, setLoaded] = useState(false);
-
 
   const openMenu = () => {
     if (showMenu) return;
@@ -34,23 +33,21 @@ function ProfileButton({ user }) {
     history.push("/");
   };
 
-
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
+      {/* <button onClick={openMenu}> */}
+      <img onClick={openMenu} className="profile-picture-drop" src={`${user.profilePicture}`} />
+      {/* </button> */}
       {showMenu && (
         <div className="dropdown-container">
           <div className="dropdown-top">
-          {/* <img className="aa"
-                src={`${user.profilePicture}`}/> */}
-          <div>{user.username}</div>
+            <img className="profile-picture" src={`${user.profilePicture}`} />
+            {user.username}
           </div>
           <div className="dropdown-bottom">
-             <button className="sign-out-button" onClick={logout}>
-            Log Out
-          </button>
+            <button className="sign-out-button" onClick={logout}>
+              Log Out
+            </button>
           </div>
         </div>
       )}

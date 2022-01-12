@@ -32,7 +32,7 @@ function EditFormModal({ question }) {
     if (content === "") {
       return setErrors(["You cannot submit a blank question."]);
     }
-    
+
     const editedQuestion = {
       id: question.id,
       content,
@@ -49,8 +49,8 @@ function EditFormModal({ question }) {
         <button onClick={() => setShowModal(true)}>Edit</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <div>
-              <h1>Edit Question</h1>
+            <div className="edit-modal">
+              <h1 className="edit-h1">Edit Question</h1>
               <form>
                 <ul>
                   {errors.map((error) => (
@@ -58,14 +58,18 @@ function EditFormModal({ question }) {
                   ))}
                 </ul>
                 <textarea
-                  id="description_textarea"
+                  // id="description_textarea"
+                 className="text-box"
                   value={editedQuestionContent}
                   onChange={(e) => setEditedQuestionContent(e.target.value)}
                 ></textarea>
-                <button onClick={(e) => handleEdit(e, question.id)}>
+                <div className="modal-button">
+
+                <button className="nav-button" onClick={(e) => handleEdit(e, question.id)}>
                   Save
                 </button>
-                <button onClick={() => setShowModal(false)}>Cancel</button>
+                <button className="nav-button" onClick={() => setShowModal(false)}>Cancel</button>
+                </div>
               </form>
             </div>
           </Modal>
