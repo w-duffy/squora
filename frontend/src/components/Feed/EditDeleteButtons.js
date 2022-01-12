@@ -9,28 +9,40 @@ import EditFormModal from "./EditFormModal";
 
 function EditDeleteButtons({ question }) {
   const [showMenu, setShowMenu] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
 
   const openMenu = () => {
-    if (!showMenu){
+    if (!showMenu) {
       setShowMenu(true);
       return;
     }
-    if (showMenu){
+    if (showMenu) {
       setShowMenu(false);
       return;
     }
   };
   useEffect(() => {
-    setShowMenu(false)
-  }, [question])
+    setShowMenu(false);
+  }, [question]);
 
   return (
     <>
-      <button onClick={openMenu} className="profile-picture-drop">OPEN</button>
+      {!showMenu && question.ownerId === sessionUser.id && (
+        <div>
+          <img
+            onClick={openMenu}
+            className="ed-picture-drop"
+            src={"https://i.ibb.co/qWKjzzb/Screenshot-2022-01-11-224913.png"}
+          />
+        </div>
+
+        // <button onClick={openMenu} className="profile-picture-drop">OPEN</button>
+      )}
       {showMenu && (
         <div>
-            <EditFormModal question={question}/>
-            <DeleteFormModal question={question} />
+          <EditFormModal question={question} />
+          <DeleteFormModal question={question} />
+          <button onClick={openMenu} className="close-buttons">X</button>
         </div>
       )}
     </>

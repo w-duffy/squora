@@ -68,6 +68,8 @@ function Feed() {
                 )
               )}
               <div>
+                <div>
+
                 <div className="feed-content">
                   <p className="p-description">{question.description}</p>
                 </div>
@@ -75,10 +77,9 @@ function Feed() {
               <div className="edit-delete">
                   <div>
                   <EditDeleteButtons question={question}/>
-                  {/* <DeleteFormModal question={question} />
-                  <EditFormModal question={question} /> */}
                   </div>
               </div>
+                </div>
             </div>
           </div>
         ))}

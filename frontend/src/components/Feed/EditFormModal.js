@@ -48,7 +48,7 @@ function EditFormModal({ question }) {
   if (sessionUser.id == question.ownerId) {
     return (
       <>
-        <button onClick={() => setShowModal(true)}>Edit</button>
+        <button className="modal-buttons-ed" onClick={() => setShowModal(true)}>Edit</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <div className="edit-modal">

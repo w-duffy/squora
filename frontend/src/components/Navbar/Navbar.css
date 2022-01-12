@@ -1,132 +1,200 @@
 .nav-container {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 400px;
+  padding-right: 400px;
+}
+
+@media screen and (max-width: 1300px) {
+  .nav-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding-left: 400px;
-    padding-right: 400px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+.nav-button {
+  background-color: #b80e0e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 1px 18px;
+  border-radius: 20px;
+  border: 0;
+  height: 2rem;
+  cursor: pointer;
+  transition: all 300ms;
 }
 
-@media screen and (max-width: 1300px ) {
-    .nav-container{
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
-.nav-button{
-    background-color: #b80e0e;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-    padding: 1px 18px;
-    border-radius: 20px;
-    border: 0;
-    height: 2rem;
-    cursor: pointer;
+.nav-button:hover {
+  background-color: #e20606;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 20px;
+  border: 0;
+  height: 2rem;
+  cursor: pointer;
 }
 
-.nav-button:hover{
-    background-color: #e20606;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-     border-radius: 20px;
-    border: 0;
-    height: 2rem;
-    cursor: pointer;
-}
-
-.nav-title{
-    color:  #b80e0e;
-    font-weight: 1000;
-    text-decoration: none;
-    font-size: xx-large;
-    cursor: pointer;
-    transition: all .1s ease-in-out;
+.nav-title {
+  color: #b80e0e;
+  font-weight: 1000;
+  text-decoration: none;
+  font-size: xx-large;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 .nav-title:hover {
-    color:  #ee0d0d;
-    font-weight: 1000;
-    text-decoration: none;
-    font-size: xx-large;
-    cursor: pointer;
-    transform: scale(100.1);
+  color: #ee0d0d;
+  font-weight: 1000;
+  text-decoration: none;
+  font-size: xx-large;
+  cursor: pointer;
+  transform: scale(100.1);
 }
 
-
-
 .dropdown-container {
-
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 3.2rem;
-        right: 25rem;
-        background-color: #fff;
-        border: 1px solid #e6e6e6;
-        border-radius: 4px;
-        color: #757575;
-        font-size: 14px;
-        width: 150px;
-        z-index: 400;
-        box-shadow: 0 0 5px 3px #f2f2f2;
-        justify-content: center;
-
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 3.2rem;
+  right: 25rem;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  color: #757575;
+  font-size: 14px;
+  width: 150px;
+  z-index: 400;
+  box-shadow: 0 0 5px 3px #f2f2f2;
+  justify-content: center;
 }
 
 .sign-out-button {
-    color: #757575;
-    border: 0;
-    background-color: white;
-    cursor: pointer;
-  }
-  .sign-out-button:hover {
-    color: black;
-    border: 0;
-    background-color: white;
-    cursor: pointer;
-  }
-  .dropdown-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #e6e6e6;
-    padding-bottom: 20px;
-    padding-top: 20px;
-  }
+  color: #757575;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  transition: all 300ms;
+}
+.sign-out-button:hover {
+  color: black;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+}
+.dropdown-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
 
-  .dropdown-bottom {
-    margin-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid #e6e6e6;
-  }
+.dropdown-bottom {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+}
 
-  .profile-picture {
-      height: 30px;
-      width: 30px;
-      border-radius: 50%;
-      padding-right: 10px;
-  }
+.profile-picture {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  padding-right: 10px;
+}
 
-  .profile-picture-drop {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    padding-right: 10px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
+.profile-picture-drop {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  padding-right: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 .profile-picture-drop:hover {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    padding-right: 10px;
-    cursor: pointer;
-    transform: scale(1.1);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  padding-right: 10px;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.ed-picture-drop {
+  height: 25px;
+  width: 30px;
+  border-radius: 90%;
+  padding-right: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.ed-picture-drop:hover {
+  height: 25px;
+  width: 30px;
+  border-radius: 90%;
+  padding-right: 10px;
+  filter: invert(5%);
+  cursor: pointer;
+}
+
+.modal-buttons-ed {
+  background-color: #b80e0e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 1px 18px;
+  border-radius: 20px;
+  border: 0;
+  height: 2rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: all 300ms;
+}
+
+.modal-buttons-ed:hover {
+  background-color: #e20606;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 20px;
+  border: 0;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.close-buttons {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 1.1px 3.1px 0;
+  color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 900;
+  transition: all 300ms;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.close-buttons:hover {
+  height: 25px;
+  width: 25px;
+  background-color: rgb(231, 229, 229);
+  border-color: rgba(5, 5, 5, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.15) 0 4.5px 12.5px;
 }

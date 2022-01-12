@@ -28,7 +28,7 @@ function DeleteFormModal({ question }) {
 
     return (
       <>
-      <button onClick={() => setShowModal(true)}>Delete</button>
+      <button className="modal-buttons-ed" onClick={() => setShowModal(true)}>Delete</button>
 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
