@@ -26,7 +26,7 @@ function Login() {
     e.preventDefault();
 
      await dispatch(
-      sessionActions.login({ credential: "user1", password: "password1" })
+      sessionActions.login({ credential: "Mr_Money", password: "password1" })
     ).catch((res) => {
       if (res.data && res.data.errors) setErrors(res.data.errors);
     });
