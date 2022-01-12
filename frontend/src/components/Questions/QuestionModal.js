@@ -18,8 +18,7 @@ function QuestionModal() {
   const [errors, setErrors] = useState([]);
 
   const setDescriptionWrapper = (e) => {
-    setDescription(e.target.value);
-  };
+    setDescription(e.target.value);};
 
   const postQuestion = async (e) => {
     e.preventDefault();
@@ -66,6 +65,7 @@ function QuestionModal() {
               <textarea
                 id="description_textarea"
                 className="text-box"
+                // className="text-box"
                 placeholder={"What is your question or link?"}
                 value={description}
                 onChange={setDescriptionWrapper}
