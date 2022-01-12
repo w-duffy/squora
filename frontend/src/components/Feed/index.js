@@ -47,7 +47,7 @@ function Feed() {
   const sortedQuestions = questions.sort(function (a, b) {
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
-  console.log(users)
+ 
 
   if (loaded) {
     return (

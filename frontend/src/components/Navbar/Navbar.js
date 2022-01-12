@@ -42,10 +42,7 @@ const Navbar = () => {
       setErrors([])
     }
   };
-  // let user = users.filter(a =>{
-  //   return a.id === sessionUser.id
-  // })
-  // console.log(user)
+
 
   return (
     <div className="nav-container">
