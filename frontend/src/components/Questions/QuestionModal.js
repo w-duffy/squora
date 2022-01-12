@@ -49,11 +49,21 @@ function QuestionModal() {
       <div onClick={() => setShowModal(true)} className="question-click">
         <div className="feed-content">
           <div className="profile-info">
-            <img
-              className="feed-profile-pic"
-              src={`${sessionUser.profilePicture}`}
-              alt="User profile pic"
-            />
+          {sessionUser.profilePicture ? (
+                        <img
+                          className="feed-profile-pic"
+                          src={sessionUser.profilePicture}
+                          alt="User profile pic"
+                        />
+                      ) : (
+                        <img
+                          className="feed-profile-pic"
+                          src={
+                            "http://cdn.onlinewebfonts.com/svg/img_76927.png"
+                          }
+                          alt="User Picture"
+                        />
+                      )}
             <p className="username">{sessionUser.username}</p>
           </div>
         </div>

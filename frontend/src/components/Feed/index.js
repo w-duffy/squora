@@ -47,7 +47,6 @@ function Feed() {
   const sortedQuestions = questions.sort(function (a, b) {
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
- 
 
   if (loaded) {
     return (
@@ -62,14 +61,23 @@ function Feed() {
                 user.id === question.ownerId ? (
                   <div className="feed-content" key={Math.random()}>
                     <div className="profile-info">
-
-                    <img
-                      className="feed-profile-pic"
-                      src={user.profilePicture}
-                      alt="User profile pic"
-                      />
-                    <p className="username">{user.username} asked: </p>
-                      </div>
+                      {user.profilePicture ? (
+                        <img
+                          className="feed-profile-pic"
+                          src={user.profilePicture}
+                          alt="User profile pic"
+                        />
+                      ) : (
+                        <img
+                          className="feed-profile-pic"
+                          src={
+                            "http://cdn.onlinewebfonts.com/svg/img_76927.png"
+                          }
+                          alt="User Picture"
+                        />
+                      )}
+                      <p className="username">{user.username} asked: </p>
+                    </div>
                   </div>
                 ) : (
                   <div key={Math.random()}></div>

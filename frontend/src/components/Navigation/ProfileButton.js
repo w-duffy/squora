@@ -36,12 +36,30 @@ function ProfileButton({ user }) {
   return (
     <>
       {/* <button onClick={openMenu}> */}
-      <img onClick={openMenu} className="profile-picture-drop" src={`${user.profilePicture}`} />
-      {/* </button> */}
+      {user.profilePicture ? (
+        <img
+          onClick={openMenu}
+          className="profile-picture-drop"
+          src={`${user.profilePicture}`}
+        />
+      ) : (
+        <img
+          onClick={openMenu}
+          className="profile-picture-drop"
+          src={"http://cdn.onlinewebfonts.com/svg/img_76927.png"}
+        />
+      )}
       {showMenu && (
         <div className="dropdown-container">
           <div className="dropdown-top">
-            <img className="profile-picture" src={`${user.profilePicture}`} />
+            {user.profilePicture ? (
+              <img className="profile-picture" src={`${user.profilePicture}`} />
+            ) : (
+              <img
+                className="profile-picture"
+                src={"http://cdn.onlinewebfonts.com/svg/img_76927.png"}
+              />
+            )}
             {user.username}
           </div>
           <div className="dropdown-bottom">
