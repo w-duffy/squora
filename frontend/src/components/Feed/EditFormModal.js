@@ -42,6 +42,7 @@ function EditFormModal({ question }) {
     let editReturn = await dispatch(editQuestion(editedQuestion));
     if (editReturn) {
       setShowModal(false);
+
     }
   };
   if (sessionUser.id == question.ownerId) {

@@ -7,6 +7,7 @@ import EditFormModal from "./EditFormModal";
 import { useHistory } from "react-router-dom";
 import QuestionModal from "../Questions/QuestionModal";
 import "./Feed.css";
+import EditDeleteButtons from "./EditDeleteButtons";
 
 function Feed() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -14,30 +15,26 @@ function Feed() {
   const [deleteClick, setDeleteClick] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [openClose, setOpenClose] = useState("Open");
 
   const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
-
-  useEffect(() => {
-    if (!showMenu) return;
-
-    const closeMenu = () => {
+    if (!showMenu) {
+      setShowMenu(true);
+      setOpenClose("Close")
+      return;
+    }
+    if (showMenu) {
       setShowMenu(false);
-    };
-
-    document.addEventListener("click", closeMenu);
-
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+      setOpenClose("Open")
+      return;
+    }
+  };
 
   const history = useHistory();
 
   const questions = useSelector((state) => state.questions.questions);
   const users = useSelector((state) => state.users.users);
 
-  const [stateChange, setStateChange] = useState("no");
 
   useEffect(async () => {
     await dispatch(getUsers());
@@ -76,8 +73,11 @@ function Feed() {
                 </div>
               </div>
               <div className="edit-delete">
-                <DeleteFormModal question={question} />
-                <EditFormModal question={question} />
+                  <div>
+                  <EditDeleteButtons question={question}/>
+                  {/* <DeleteFormModal question={question} />
+                  <EditFormModal question={question} /> */}
+                  </div>
               </div>
             </div>
           </div>
