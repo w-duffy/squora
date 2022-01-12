@@ -23,10 +23,10 @@ function EditFormModal({ question }) {
   const handleEdit = async (e) => {
     e.preventDefault();
     const content = editedQuestionContent;
-    let idx = content.indexOf("?")
-    let length = content.length - 1
 
-    if ( idx !== length){
+    let valid = content.endsWith("?")
+
+    if (!valid){
       return setErrors(["Your question must end with a question mark."]);
     }
 

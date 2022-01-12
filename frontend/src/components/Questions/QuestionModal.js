@@ -27,9 +27,8 @@ function QuestionModal() {
       ownerId,
       description,
     };
-    let idx = description.indexOf("?");
-    let length = description.length - 1;
-    if (idx !== length) {
+    let valid = description.endsWith("?")
+    if (!valid) {
       return setErrors(["Your question must end with a question mark."]);
     }
     if (description === "") {
