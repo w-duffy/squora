@@ -11,6 +11,11 @@
     width: 100%;
 }
 
+.question-click > p:hover {
+    cursor: pointer;
+    width: 100%;
+    color:black;
+}
 .p-question {
     font-size: larger;
     font: "Lucida Grande", Helvetica, Arial, sans-serif;

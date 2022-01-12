@@ -53,22 +53,29 @@ function QuestionModal() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div id="question-container">
-            What is your question?
+          <div className="edit-modal">
+
+          <h1 className="edit-h1">What is your question?</h1>
+
             <form onSubmit={postQuestion}>
               <ul>
                 {errors.map((error) => (
                   <li key={error}>{error}</li>
-                ))}
+                  ))}
               </ul>
               <textarea
                 id="description_textarea"
+                className="text-box"
                 placeholder={"What is your question or link?"}
                 value={description}
                 onChange={setDescriptionWrapper}
-              ></textarea>
-              <button type="submit">Add Question</button>
+                ></textarea>
+              <div className="question-modal-button">
+              <button className="nav-button" type="submit">Add Question</button>
+              </div>
             </form>
           </div>
+                </div>
         </Modal>
       )}
     </>

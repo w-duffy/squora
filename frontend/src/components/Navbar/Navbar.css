@@ -45,7 +45,18 @@
     text-decoration: none;
     font-size: xx-large;
     cursor: pointer;
+    transition: all .1s ease-in-out;
 }
+.nav-title:hover {
+    color:  #ee0d0d;
+    font-weight: 1000;
+    text-decoration: none;
+    font-size: xx-large;
+    cursor: pointer;
+    transform: scale(100.1);
+}
+
+
 
 .dropdown-container {
 
@@ -109,4 +120,13 @@
     border-radius: 50%;
     padding-right: 10px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.profile-picture-drop:hover {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    padding-right: 10px;
+    cursor: pointer;
+    transform: scale(1.1);
 }

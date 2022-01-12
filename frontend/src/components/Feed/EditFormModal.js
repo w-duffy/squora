@@ -6,6 +6,7 @@ import { editQuestion } from "../../store/questions";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import '../../context/Modal.css'
 
 function EditFormModal({ question }) {
   const [showModal, setShowModal] = useState(false);

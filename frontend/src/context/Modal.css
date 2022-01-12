@@ -50,3 +50,8 @@
   justify-content: center;
   margin-bottom: 5px;
 }
+
+.question-modal-button{
+  display: flex;
+  justify-content: center;
+}
