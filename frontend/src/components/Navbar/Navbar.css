@@ -113,15 +113,15 @@
 }
 
 .profile-picture-drop {
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 .profile-picture-drop:hover {
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   cursor: pointer;
   transform: scale(1.1);
