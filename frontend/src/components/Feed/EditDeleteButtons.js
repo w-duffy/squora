@@ -27,24 +27,31 @@ function EditDeleteButtons({ question }) {
 
   return (
     <>
-      {!showMenu && question.ownerId === sessionUser.id && (
+      {!showMenu && (
         <div>
-          <img
-            onClick={openMenu}
-            className="ed-picture-drop"
-            src={"https://i.ibb.co/qWKjzzb/Screenshot-2022-01-11-224913.png"}
-          />
+
+          <button onClick={openMenu} className="close-buttons-open">
+            . . .
+          </button>
         </div>
 
-        // <button onClick={openMenu} className="profile-picture-drop">OPEN</button>
       )}
-      {showMenu && (
-        <div>
-          <EditFormModal question={question} />
-          <DeleteFormModal question={question} />
-          <button onClick={openMenu} className="close-buttons">X</button>
-        </div>
-      )}
+      <div>
+        {showMenu && <button className="modal-answer-button">Answer</button>}
+        {showMenu && question.ownerId === sessionUser.id && (
+          <>
+            <EditFormModal question={question} />
+            <DeleteFormModal question={question} />
+          </>
+        )}
+        {showMenu && (
+          <>
+            <button onClick={openMenu} className="close-buttons">
+              X
+            </button>
+          </>
+        )}
+      </div>
     </>
   );
 }
