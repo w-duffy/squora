@@ -33,7 +33,7 @@ function DeleteFormModal({ question }) {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
         <div>
-        <h1>Delete question?</h1>
+        <h1>Delete Question?</h1>
         <form onSubmit={handleDelete}>
           <div className="modal-button">
         <button className="nav-button" type="submit">Confirm</button>
