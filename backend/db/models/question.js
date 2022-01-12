@@ -10,13 +10,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    topicId: {
-      type: DataTypes.INTEGER
-      //include reference to Topics model here
-    }
   }, {});
   Question.associate = function(models) {
     Question.belongsTo(models.User, { foreignKey: "ownerId" });
+    Question.hasMany(models.Answer, { foreignKey: "questionId" });
   };
   return Question;
 };

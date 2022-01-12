@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Questions', {
+    return queryInterface.createTable('Upvotes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,11 +11,12 @@ module.exports = {
       ownerId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "Users" },
+        references: { model: "Users" }
       },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false
+      answerId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "Answers" }
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +29,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Questions');
+    return queryInterface.dropTable('Upvotes');
   }
 };
