@@ -12,6 +12,10 @@ import Follows from "./components/Follows";
 import Topics from "./components/Topics";
 import Navbar from "./components/Navbar/Navbar";
 import { NavLink } from 'react-router-dom';
+import github from './images/logo-github.png'
+import aa from './images/logo-aa.png'
+import linkedin from './images/logo-linkedin.png'
+import memehub from './images/logo-memehub.png'
 
 function App() {
   const history = useHistory();
@@ -41,7 +45,7 @@ function App() {
           <div className="Links">
             <a href="https://github.com/w-duffy/squora" target="_blank">
               <img
-                src={"https://cdn-icons-png.flaticon.com/512/25/25231.png"}
+                src={github}
                 alt="github"
               />
             </a>
@@ -51,7 +55,7 @@ function App() {
             >
               <img
                 src={
-                  "https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png"
+                  linkedin
                 }
                 alt="LinkedIn"
               />
@@ -61,15 +65,13 @@ function App() {
               target="_blank"
             >
               <img className="aa"
-                src={
-                  "https://assets-global.website-files.com/5dcc7f8c449e597ed83356b8/5dcf6294afa6ed60b2324b60_logo-full-white-1000.png"
-                }
+                src={aa}
                 alt="App Academy"
               />
             </a>
             <a href="https://memehub-medium-clone.herokuapp.com/" target="_blank">
               <img className="memehub"
-                src={"https://i.ibb.co/RBXZMcT/Screenshot-2022-01-11-142127.png"}
+                src={memehub}
                 alt="MemeHub"
               />
             </a>

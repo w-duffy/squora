@@ -48,7 +48,7 @@ html, body{
 }
 
 html {
-    background-image: url("https://www.wealthandfinance-news.com/wp-content/uploads/2020/10/stocks.jpg");
+    background-image: url("../../images/background.jpg");
     opacity: .95;
     z-index: 200;
 }
