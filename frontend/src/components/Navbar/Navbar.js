@@ -8,6 +8,12 @@ import QuestionModal from "../Questions/QuestionModal";
 const Navbar = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
+
+  // let user = users.filter(a =>{
+  //   return a.id === sessionUser.id
+  // })
+  // console.log(user)
+
   return (
     <div className="nav-container">
       <div>
@@ -17,12 +23,12 @@ const Navbar = () => {
         <p>Welcome {sessionUser.username}</p>
       </div>
 
-      <div>
-        <ProfileButton user={sessionUser} />
-      </div>
       <div>Search Squora</div>
       <div>
         <button className="nav-button">Add question</button>
+      </div>
+      <div>
+        <ProfileButton user={sessionUser} />
       </div>
     </div>
   );

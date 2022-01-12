@@ -21,6 +21,8 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+
+
   const sessionUser = useSelector((state) => state.session.user);
 
   if (!sessionUser) {

@@ -43,6 +43,21 @@
     cursor: pointer;
 }
 
+.login-button:hover{
+    margin-top: 10px;
+    justify-content: flex-end;
+    background-color: #e20606;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 1px 18px;
+    border-radius: 20px;
+    border: 0;
+    height: 2rem;
+    cursor: pointer;
+}
+
+
 .button-div{
     display: flex;
     justify-content: space-between;

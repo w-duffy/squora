@@ -89,7 +89,7 @@ const questionsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case LOAD_QUESTIONS:
-      newState = {...state} 
+      newState = {...state}
       newState.questions = action.questions;
       return newState;
     case ADD_QUESTION:
@@ -103,8 +103,7 @@ const questionsReducer = (state = initialState, action) => {
           delete newState.questions[i];
         }
       }
-      // console.log(action.questionId)
-      // console.log(newState.questions)
+
 
       return newState;
     case EDIT_QUESTION:
