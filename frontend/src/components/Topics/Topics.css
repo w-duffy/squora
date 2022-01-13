@@ -41,3 +41,10 @@ body{
     align-items: center;
     mix-blend-mode: multiply;
 }
+
+.topics-container > .trending-title > h1 {
+    transition: all .5s ease-in-out;
+}
+.topics-container:hover > .trending-title > h1{
+    transform: scale(1.1);
+}

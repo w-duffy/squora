@@ -5,6 +5,9 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { addQuestionForm } from "../../store/questions";
 import "./Questions.css";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 function QuestionModal() {
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +37,8 @@ function QuestionModal() {
     if (description === "") {
       return setErrors(["You cannot submit a blank question."]);
     }
-
+    toast("Your question has been successfully posted!", {
+      position: toast.POSITION.TOP_CENTER, autoClose:3000})
     let createdQuestion = await dispatch(addQuestionForm(payload));
     if (createdQuestion) {
       setDescription("");

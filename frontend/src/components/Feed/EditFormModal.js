@@ -3,10 +3,12 @@ import { Modal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { editQuestion } from "../../store/questions";
-import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import '../../context/Modal.css'
+import "../../context/Modal.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 function EditFormModal({ question }) {
   const [showModal, setShowModal] = useState(false);
@@ -24,9 +26,9 @@ function EditFormModal({ question }) {
     e.preventDefault();
     const content = editedQuestionContent;
 
-    let valid = content.endsWith("?")
+    let valid = content.endsWith("?");
 
-    if (!valid){
+    if (!valid) {
       return setErrors(["Your question must end with a question mark."]);
     }
 
@@ -38,17 +40,21 @@ function EditFormModal({ question }) {
       id: question.id,
       content,
     };
-
+    toast("Your question has been edited", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 2500,
+    });
     let editReturn = await dispatch(editQuestion(editedQuestion));
     if (editReturn) {
       setShowModal(false);
-
     }
   };
   if (sessionUser.id == question.ownerId) {
     return (
       <>
-        <button className="modal-buttons-ed" onClick={() => setShowModal(true)}>Edit</button>
+        <button className="modal-buttons-ed" onClick={() => setShowModal(true)}>
+          Edit
+        </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <div className="edit-modal">
@@ -61,16 +67,23 @@ function EditFormModal({ question }) {
                 </ul>
                 <textarea
                   // id="description_textarea"
-                 className="text-box"
+                  className="text-box"
                   value={editedQuestionContent}
                   onChange={(e) => setEditedQuestionContent(e.target.value)}
                 ></textarea>
                 <div className="modal-button">
-
-                <button className="nav-button" onClick={(e) => handleEdit(e, question.id)}>
-                  Save
-                </button>
-                <button className="nav-button" onClick={() => setShowModal(false)}>Cancel</button>
+                  <button
+                    className="nav-button"
+                    onClick={(e) => handleEdit(e, question.id)}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className="nav-button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </form>
             </div>

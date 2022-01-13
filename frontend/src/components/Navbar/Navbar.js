@@ -6,7 +6,9 @@ import ProfileButton from "../Navigation/ProfileButton";
 import QuestionModal from "../Questions/QuestionModal";
 import { Modal } from "../../context/Modal";
 import { addQuestionForm } from "../../store/questions";
-
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 const Navbar = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -33,7 +35,8 @@ const Navbar = () => {
     if (description === "") {
       return setErrors(["You cannot submit a blank question."]);
     }
-
+    toast("Your question has been successfully posted!", {
+      position: toast.POSITION.TOP_CENTER, autoClose:3000})
     let createdQuestion = await dispatch(addQuestionForm(payload));
     if (createdQuestion) {
       setDescription("");
