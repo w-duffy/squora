@@ -18,12 +18,13 @@
     color:black;
 }
 .p-question {
-    font-size: larger;
+    font-size: 22px;
     font: "Lucida Grande", Helvetica, Arial, sans-serif;
     color: gray;
     font-weight: bold;
     padding-left: 10px;
     margin-top: 10px;
+    margin-bottom: 5px;
 }
 .d-username{
 

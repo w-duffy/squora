@@ -27,7 +27,7 @@ function EditDeleteButtons({ question }) {
   }, [question]);
 
   return (
-    <>
+    <div>
       {!showMenu && (
         <div>
 
@@ -53,7 +53,7 @@ function EditDeleteButtons({ question }) {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

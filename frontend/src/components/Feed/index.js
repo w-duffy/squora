@@ -6,6 +6,7 @@ import DeleteFormModal from "./DeleteFormModal";
 import EditFormModal from "./EditFormModal";
 import { useHistory } from "react-router-dom";
 import QuestionModal from "../Questions/QuestionModal";
+import Answers from "../Answers/index";
 import "./Feed.css";
 import EditDeleteButtons from "./EditDeleteButtons";
 
@@ -17,18 +18,9 @@ function Feed() {
   const [showMenu, setShowMenu] = useState(false);
   const [openClose, setOpenClose] = useState("Open");
 
-  const openMenu = () => {
-    if (!showMenu) {
-      setShowMenu(true);
-      setOpenClose("Close");
-      return;
-    }
-    if (showMenu) {
-      setShowMenu(false);
-      setOpenClose("Open");
-      return;
-    }
-  };
+  useEffect(() => {
+    setShowMenu(false);
+  }, []);
 
   const history = useHistory();
 
@@ -89,9 +81,18 @@ function Feed() {
                     <p className="p-description">{question.description}</p>
                   </div>
                 </div>
-                <div className="edit-delete">
-                  <div>
-                    <EditDeleteButtons question={question} />
+                <div className="rel">
+
+                  <div className="answer-button">
+                    <Answers question={question} />
+                  </div>
+                <div className="answer-ed">
+
+                  <div className="edit-delete">
+
+                      <EditDeleteButtons question={question} />
+
+                </div>
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 
-function QuestionModal() {
+function AnswersModal() {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -106,4 +106,4 @@ function QuestionModal() {
   );
 }
 
-export default QuestionModal;
+export default AnswersModal;
