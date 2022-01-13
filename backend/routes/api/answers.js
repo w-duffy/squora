@@ -26,5 +26,33 @@ router.get(
     })
   );
 
+  router.delete(
+    "/:id(\\d+)",
+    asyncHandler(async (req, res) => {
+      const { id } = req.body;
+      console.log("ID", id)
+      const answer = await Answer.findByPk(id);
+      console.log(answer)
+      await answer.destroy()
+      res.json({deleted: true})
+    })
+  );
+
+  router.put(
+    "/:id(\\d+)",
+    asyncHandler(async (req, res) => {
+      const { id, content } = req.body;
+      const answerToUpdate = await Answer.findByPk(id);
+      const answer = {
+        id,
+        answer: content,
+      }
+
+      const update = await answerToUpdate.update(answer)
+      return res.json(update)
+    })
+  );
+
+
 
   module.exports = router;

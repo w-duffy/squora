@@ -33,6 +33,10 @@ function AnswersModal({question}) {
     };
     console.log("PAYLOAD", payload)
 
+    if (answer.length > 255) {
+      return setErrors(["Your answer must be less than 255 characters."]);
+    }
+
      if (answer === "") {
       return setErrors(["You cannot submit a blank answer."]);
     }
