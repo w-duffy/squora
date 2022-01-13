@@ -3,45 +3,44 @@ import { Modal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { addQuestionForm } from "../../store/questions";
-import "./Questions.css";
+import { addAnswers } from "../../store/answers";
+import "../Questions/Questions.css";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 
-function AnswersModal() {
+function AnswersModal({question}) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => {
     return state.session.user;
   });
-  const [description, setDescription] = useState("");
+  const [answer, setAnswer] = useState("");
   const [ownerId, setOwnerId] = useState(sessionUser.id);
   const [errors, setErrors] = useState([]);
 
-  const setDescriptionWrapper = (e) => {
-    setDescription(e.target.value);
+  const setAnswerWrapper = (e) => {
+    setAnswer(e.target.value);
   };
 
-  const postQuestion = async (e) => {
+  const postAnswer = async (e) => {
     e.preventDefault();
     const payload = {
       ownerId,
-      description,
+      answer,
+      questionId: question.id,
     };
-    let valid = description.endsWith("?")
-    if (!valid) {
-      return setErrors(["Your question must end with a question mark."]);
+    console.log("PAYLOAD", payload)
+
+     if (answer === "") {
+      return setErrors(["You cannot submit a blank answer."]);
     }
-    if (description === "") {
-      return setErrors(["You cannot submit a blank question."]);
-    }
-    toast("Your question has been successfully posted!", {
+    toast("Your answer has been successfully posted!", {
       position: toast.POSITION.TOP_CENTER, autoClose:3000})
-    let createdQuestion = await dispatch(addQuestionForm(payload));
-    if (createdQuestion) {
-      setDescription("");
+    let createdAnswer = await dispatch(addAnswers(payload));
+    if (createdAnswer) {
+      setAnswer("");
       setShowModal(false);
       setErrors([]);
     }
@@ -49,36 +48,16 @@ function AnswersModal() {
 
   return (
     <>
-      <div onClick={() => setShowModal(true)} className="question-click">
-        <div className="feed-content">
-          <div className="profile-info">
-          {sessionUser.profilePicture ? (
-                        <img
-                          className="feed-profile-pic"
-                          src={sessionUser.profilePicture}
-                          alt="User profile pic"
-                        />
-                      ) : (
-                        <img
-                          className="feed-profile-pic"
-                          src={
-                            "http://cdn.onlinewebfonts.com/svg/img_76927.png"
-                          }
-                          alt="User Picture"
-                        />
-                      )}
-            <p className="username">{sessionUser.username}</p>
-          </div>
-        </div>
-        <p className="p-question">What do you want to ask?</p>
-      </div>
+      <button onClick={() => setShowModal(true)} className="modal-answer-button">
+
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div id="question-container">
             <div className="edit-modal">
-              <h1 className="edit-h1">What is your question?</h1>
+              <h1 className="edit-h1">What is your Answer?</h1>
 
-              <form onSubmit={postQuestion}>
+              <form onSubmit={postAnswer}>
                 <ul>
                   {errors.map((error) => (
                     <li key={error}>{error}</li>
@@ -88,13 +67,13 @@ function AnswersModal() {
                   id="description_textarea"
                   className="text-box"
                   // className="text-box"
-                  placeholder={"What is your question or link?"}
-                  value={description}
-                  onChange={setDescriptionWrapper}
+                  placeholder={"What is your answer?"}
+                  value={answer}
+                  onChange={setAnswerWrapper}
                 ></textarea>
                 <div className="question-modal-button">
                   <button className="nav-button" type="submit">
-                    Add Question
+                    Add Answer
                   </button>
                 </div>
               </form>

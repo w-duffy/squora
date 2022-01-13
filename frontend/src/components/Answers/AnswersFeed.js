@@ -12,20 +12,24 @@ function AnswersFeed({ question }) {
   const answers = useSelector((state) => state.answers);
   const users = useSelector((state) => state.users.users);
 
+  let answerArr = answers.answers.filter((a) => {
+    return a.questionId === question.id;
+  });
   useEffect(async () => {
     await dispatch(getAnswers());
     await dispatch(getUsers());
   }, []);
 
-  let answerArr = answers.answers.filter((a) => {
-    return a.questionId === question.id;
+  const sortedAnswers = answerArr.sort(function (a, b) {
+    return new Date(a.createdAt) - new Date(b.createdAt);
   });
-  console.log(answerArr);
+
+
   if (answerArr.length !== 0){
 
       return (
           <div>
-      {answerArr.map((answer) => (
+      {sortedAnswers.map((answer) => (
           <div key={answer.id}>
           {users.map((user) =>
             user.id === answer.ownerId ? (

@@ -9,7 +9,7 @@ const loadAnswers = (answers) => ({
   answers,
 });
 
-const addQuestion = (answers) => ({
+const addAnswer = (answers) => ({
   type: ADD_ANSWER,
   answers,
 });
@@ -34,6 +34,7 @@ export const getAnswers = () => async (dispatch) => {
 };
 
 export const addAnswers = (payload) => async (dispatch) => {
+  console.log("PAYLOAD", payload)
   const response = await csrfFetch(`/api/answers`, {
     method: "POST",
     headers: {
@@ -44,7 +45,7 @@ export const addAnswers = (payload) => async (dispatch) => {
 
   if (response.ok) {
     const answer = await response.json();
-    dispatch(addAnswers(answer));
+    dispatch(addAnswer(answer));
     return answer;
   }
 };

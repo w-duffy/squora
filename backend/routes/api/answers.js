@@ -19,9 +19,10 @@ router.get(
   router.post(
     "/",
     asyncHandler(async (req, res) => {
-      const { ownerId, description, topicId } = req.body;
-      const answer = await Answer.create(req.body);
-      return res.json(answer);
+      console.log(req.body)
+      const { ownerId, answer, questionId } = req.body;
+      const a = await Answer.create(req.body);
+      return res.json(a);
     })
   );
 

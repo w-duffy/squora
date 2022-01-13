@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import QuestionModal from "../Questions/QuestionModal";
 import DeleteFormModal from "./DeleteFormModal";
 import EditFormModal from "./EditFormModal";
+import AnswersModal from "../Answers/AnswersModal";
 
 
 function EditDeleteButtons({ question }) {
@@ -38,7 +39,7 @@ function EditDeleteButtons({ question }) {
 
       )}
       <div>
-        {showMenu && <button className="modal-answer-button">Answer</button>}
+        {showMenu && <AnswersModal question={question} />}
         {showMenu && question.ownerId === sessionUser.id && (
           <>
             <EditFormModal question={question} />
