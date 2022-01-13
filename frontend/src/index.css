@@ -27,6 +27,10 @@
 .Feed, .Topics, .Follow {
     margin-top: 25px;
 }
+.Topics{
+  display: flex;
+  justify-content: flex-end;
+}
 
 
   /* <div class="container">
