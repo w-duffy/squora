@@ -47,7 +47,7 @@ function Answers({question}) {
         {showAnswers && (
             <div>
 
-            <button className="answers-button" onClick={openAnswers}>Close</button>
+            <button className="answers-button" onClick={openAnswers}>Close Answer</button>
             <AnswersFeed question={question} />
             </div>
             )}

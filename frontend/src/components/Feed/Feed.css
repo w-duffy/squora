@@ -95,7 +95,9 @@ div.feed-content-answer {
 .profile-info-answer{
     display: flex;
     flex-direction: column;
-}
+    /* border-top: solid rgb(236, 234, 234) 1px; */
+    /* padding-top: 5px; */
+  }
 .pic-answer-username{
     display: inline-flex;
     align-items: center;
