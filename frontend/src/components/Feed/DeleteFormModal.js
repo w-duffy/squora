@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
@@ -7,18 +7,42 @@ import { useHistory } from "react-router-dom";
 import { getQuestions } from "../../store/questions";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import {deleteAnswer} from '../../store/answers'
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
 function DeleteFormModal({ question }) {
   const [showModal, setShowModal] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
-
+  const answers = useSelector((state) => state.answers.answers);
+  const [a, setqAnswers] = useState()
   const dispatch = useDispatch();
   const history = useHistory();
 
+  let qAnswers
+  useEffect(() =>{
+      qAnswers = answers.filter(answer =>{
+        return answer.questionId === question.id
+      })
+      setqAnswers(qAnswers)
+
+  },[])
+
+  console.log("a1", a)
+  const handleAnswerDelete = async(e) =>{
+    e.preventDefault()
+     for (let i = 0; i < a.length; i++) {
+       console.log("A", a)
+      await dispatch(deleteAnswer(a[i]))
+    }
+      return handleDelete(e)
+
+  }
+
   const handleDelete = async (e) => {
+    console.log("a2", a)
     e.preventDefault();
+
     let deleted = await dispatch(deleteQuestion(question));
     await dispatch(getQuestions());
     toast("Your question has been deleted", {
@@ -41,7 +65,7 @@ function DeleteFormModal({ question }) {
           <Modal onClose={() => setShowModal(false)}>
             <div>
               <h1>Delete Question?</h1>
-              <form onSubmit={handleDelete}>
+              <form onSubmit={handleAnswerDelete}>
                 <div className="modal-button">
                   <button className="nav-button" type="submit">
                     Confirm

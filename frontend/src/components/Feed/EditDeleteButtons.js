@@ -12,7 +12,6 @@ import AnswersModal from "../Answers/AnswersModal";
 function EditDeleteButtons({ question }) {
   const [showMenu, setShowMenu] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
-
   const openMenu = () => {
     if (!showMenu) {
       setShowMenu(true);
@@ -29,7 +28,7 @@ function EditDeleteButtons({ question }) {
 
   return (
     <div>
-      {!showMenu && (
+      {!showMenu && question.ownerId === sessionUser.id && (
         <div>
 
           <button onClick={openMenu} className="close-buttons-open">
@@ -39,7 +38,6 @@ function EditDeleteButtons({ question }) {
 
       )}
       <div>
-        {showMenu && <AnswersModal question={question} />}
         {showMenu && question.ownerId === sessionUser.id && (
           <>
             <EditFormModal question={question} />

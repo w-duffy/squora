@@ -3,7 +3,7 @@ import { Modal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { addAnswers } from "../../store/answers";
+import { addAnswers, getAnswers } from "../../store/answers";
 import "../Questions/Questions.css";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,9 @@ function AnswersModal({question}) {
   const [answer, setAnswer] = useState("");
   const [ownerId, setOwnerId] = useState(sessionUser.id);
   const [errors, setErrors] = useState([]);
+  const answers = useSelector((state) => state.answers.answers);
+
+
 
   const setAnswerWrapper = (e) => {
     setAnswer(e.target.value);
@@ -51,11 +54,18 @@ function AnswersModal({question}) {
   };
 
   useEffect(async () => {
+    await getAnswers()
     setShowModal(false);
   }, []);
 
-  return (
-    <>
+  let showThis = answers.filter(a =>{
+    return a.questionId === question.id
+  })
+  console.log(showThis)
+  if(!showThis.length){
+
+    return (
+      <>
       <button onClick={() => setShowModal(true)} className="modal-answer-button">
 
       </button>
@@ -69,7 +79,7 @@ function AnswersModal({question}) {
                 <ul>
                   {errors.map((error) => (
                     <li key={error}>{error}</li>
-                  ))}
+                    ))}
                 </ul>
                 <textarea
                   id="description_textarea"
@@ -78,7 +88,7 @@ function AnswersModal({question}) {
                   placeholder={"What is your answer?"}
                   value={answer}
                   onChange={setAnswerWrapper}
-                ></textarea>
+                  ></textarea>
                 <div className="question-modal-button">
                   <button className="nav-button" type="submit">
                     Add Answer
@@ -91,6 +101,7 @@ function AnswersModal({question}) {
       )}
     </>
   );
+} return <div></div>
 }
 
 export default AnswersModal;
