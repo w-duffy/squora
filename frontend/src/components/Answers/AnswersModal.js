@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -49,6 +49,10 @@ function AnswersModal({question}) {
       setErrors([]);
     }
   };
+
+  useEffect(async () => {
+    setShowModal(false);
+  }, []);
 
   return (
     <>

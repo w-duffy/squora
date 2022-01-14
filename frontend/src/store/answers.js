@@ -34,7 +34,6 @@ export const getAnswers = () => async (dispatch) => {
 };
 
 export const addAnswers = (payload) => async (dispatch) => {
-  console.log("PAYLOAD", payload)
   const response = await csrfFetch(`/api/answers`, {
     method: "POST",
     headers: {
@@ -51,12 +50,14 @@ export const addAnswers = (payload) => async (dispatch) => {
 };
 
 export const deleteAnswer = (answer) => async (dispatch) => {
+
   const response = await csrfFetch(`/api/answers/${answer.id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(answer),
   });
   const deleted = await response.json()
+
   if (response.ok) {
     dispatch(removeAnswer(answer.id));
     // return true;
@@ -102,8 +103,6 @@ const answersReducer = (state = initialState, action) => {
             delete newState.answers[i];
           }
         }
-
-
         return newState;
         case EDIT_ANSWER:
           newState = JSON.parse(JSON.stringify(state));

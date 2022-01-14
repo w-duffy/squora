@@ -29,10 +29,9 @@ router.get(
   router.delete(
     "/:id(\\d+)",
     asyncHandler(async (req, res) => {
-      const { id } = req.body;
-      console.log("ID", id)
+           const { id } = req.body;
+      console.log(id)
       const answer = await Answer.findByPk(id);
-      console.log(answer)
       await answer.destroy()
       res.json({deleted: true})
     })

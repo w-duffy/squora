@@ -7,6 +7,8 @@ import { getAnswers } from "../../store/answers";
 import { getUsers } from "../../store/user";
 import AnswersDeleteFormModal from "./AnswersDeleteModal";
 import EditAnswerModal from "./AnswersEditModal";
+// import UpvoteButton from "../Upvotes";
+import AnswersModal from "./AnswersModal";
 
 function AnswersFeed({ question }) {
   const dispatch = useDispatch();
@@ -70,6 +72,7 @@ function AnswersFeed({ question }) {
                   {answer.answer}
                   </div>
                         <div>
+                          {/* <UpvoteButton answer={answer} /> */}
                           <AnswersDeleteFormModal answer={answer} />
                           <EditAnswerModal answer={answer} />
                         </div>
@@ -91,7 +94,7 @@ function AnswersFeed({ question }) {
             There are currently no answers to this question.  Be the first to answer by clicking the button below.
             </p>
             <div className="first-answer">
-            <button className="answers-button">Answer this Question</button>
+            <AnswersModal question={question} />
             </div>
     </div>
     </>
