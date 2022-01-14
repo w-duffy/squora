@@ -53,7 +53,7 @@ function Answers({question}) {
             )}
             {!showAnswers &&  (
                 <>
-              <button className="answers-button" onClick={openAnswers}>Answers</button>
+              <button className="answers-button" onClick={openAnswers}>See Answer</button>
 
               </>
             )}

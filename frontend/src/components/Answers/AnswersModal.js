@@ -67,7 +67,7 @@ function AnswersModal({question}) {
     return (
       <>
       <button onClick={() => setShowModal(true)} className="modal-answer-button">
-
+      Answer
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
