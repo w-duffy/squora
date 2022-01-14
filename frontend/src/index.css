@@ -145,6 +145,7 @@ html {
       margin-right: 10px;
       height: 20px;
       width: 100px;
+      mix-blend-mode: multiply;
 
     }
 
