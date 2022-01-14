@@ -12,7 +12,7 @@ const Follows = () => {
         </h1>
         </div>
         <div className="container-feed">
-           
+
         <a className="news" href="https://www.marketwatch.com/story/nasdaq-near-a-10-correction-isnt-the-sell-signal-you-probably-think-it-is-11642112374?siteid=yhoof2">
             Nasdaq near a 10% correction isn’t the sell signal you probably think it is
             </a>
@@ -42,7 +42,7 @@ const Follows = () => {
         </a>
         </div>
         <div className="container-feed">
-        <a className="news" href="https://www.morningstar.com/articles/1074752/target-date-fund-flows-bounce-back-in-2021">
+        <a className="news" href="https://www.morningstar.com/articles/1074445/how-well-did-the-retirement-saver-portfolios-perform-in-2021">
         How Well Did the Retirement Saver Portfolios Perform in 2021?
         </a>
         </div>
