@@ -117,6 +117,41 @@ function App() {
             </LoggedInRoute>
           </div>
         </div>
+          <div className="Links-footer">
+            <p className="nav-title-footer">Squora</p>
+            <a href="https://github.com/w-duffy/squora" target="_blank">
+              <img
+                src={github}
+                alt="github"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/will-duffy-a46a7a8a/"
+              target="_blank"
+            >
+              <img
+                src={
+                  linkedin
+                }
+                alt="LinkedIn"
+              />
+            </a>
+            <a
+              href="https://www.appacademy.io/enterprise/hiring?utm_medium=ppc&utm_source=google&utm_campaign=14640069351&gclid=Cj0KCQiA8vSOBhCkARIsAGdp6RTVy85MXjwkVGN3f0-ripxBOp9676sXnVJ-uqyIB-7mNQSywGsWiLcaAijhEALw_wcB"
+              target="_blank"
+            >
+              <img className="aa"
+                src={aa}
+                alt="App Academy"
+              />
+            </a>
+            <a href="https://memehub-medium-clone.herokuapp.com/" target="_blank">
+              <img className="memehub"
+                src={memehub}
+                alt="MemeHub"
+              />
+            </a>
+          </div>
       </>
     );
 }

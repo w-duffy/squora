@@ -258,3 +258,17 @@
     border-color: rgba(5, 5, 5, 0.2);
     box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px;
   }
+
+  .nav-title-footer {
+    color: #b80e0e;
+    font-weight: 1000;
+    text-decoration: none;
+    font-size: xx-large;
+    transition: all 0.3s ease-in-out;
+  }
+  .nav-title-footer:hover {
+    color: #ee0d0d;
+    font-weight: 1000;
+    text-decoration: none;
+    font-size: xx-large;
+  }
