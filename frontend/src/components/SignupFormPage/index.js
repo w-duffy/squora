@@ -37,7 +37,7 @@ function SignupFormPage() {
 
 
       <div className="splash-login">
-        <p>New User? Please sign up below</p>
+        <p>New users please sign up below</p>
       </div>
       <label>
       <p className="user-pass">Email</p>

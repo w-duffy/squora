@@ -33,6 +33,11 @@
   justify-content: flex-end;
 }
 
+.Follows{
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
 
   /* <div class="container">
   <div class="Title"></div>
@@ -144,17 +149,17 @@ html {
     }
 
   .Buttons{
-      padding-left: 25px;
+      padding-left: 50px;
     background: white;
 
 }
 .Description{
     background: white;
     border-right: 1px solid rgb(221, 221, 221);
-    border-image: linear-gradient(to bottom, rgb(221, 221, 221) 90%, rgba(0,0,0,0) 75%);
+    border-image: linear-gradient(to bottom, rgb(221, 221, 221) 93%, rgba(0,0,0,0) 75%);
     border-image-slice: 1;
     padding-right: 0px;
-    padding-left: 50px;
+    padding-left: 75px;
     padding-bottom: 25px;
 }
 .signup-button{

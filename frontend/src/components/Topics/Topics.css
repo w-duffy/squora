@@ -32,9 +32,33 @@ body {
   font: "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #b80e0e;
 }
+.trending-title-news {
+  display: flex;
+  justify-content: center;
+  font-size: 13.5px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #b80e0e;
+  width: 37%;
+  transition: all 0.5s ease-in-out
+}
+.Follows:hover > .trending-title-news {
+  display: flex;
+  justify-content: center;
+  font-size: 13.5px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #b80e0e;
+  width: 37%;
+  transform: scale(1.1);
+}
+
 
 .trending-title-head {
   margin-top: 0px;
+}
+.trending-title-head-news {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 5px;
 }
 .trending-img {
   display: flex;

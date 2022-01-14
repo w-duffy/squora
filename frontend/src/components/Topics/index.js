@@ -34,6 +34,12 @@ const Topics = () => {
             <a target="_blank" href="https://finance.yahoo.com/quote/GOOG?p=GOOG&.tsrc=fin-srch" className="trending-img">
         <img className="popular-img" alt="google" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Google_logo_%282010-2013%29.svg/2560px-Google_logo_%282010-2013%29.svg.png"} />
             </a>
+            <a target="_blank" href="https://finance.yahoo.com/quote/MTDR?p=MTDR&.tsrc=fin-srch" className="trending-img">
+        <img className="popular-img" alt="google" src={"https://cdn.kscope.io/d4c93332e90a14d7f486503e82f380e7-g682056g82e90.jpg"} />
+            </a>
+            <a target="_blank" href="https://finance.yahoo.com/quote/BLK?p=BLK&.tsrc=fin-srch" className="trending-img">
+        <img className="popular-img" alt="google" src={"https://www.ywca-berkeley.org/wp-content/uploads/2019/10/BlackRock-new-logo-1.png"} />
+            </a>
 
         </div>
 
