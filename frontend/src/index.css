@@ -169,6 +169,7 @@ html {
     border-top: solid rgb(221, 221, 221) 1px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    box-shadow: 0px 0px 3px 0px lightgrey;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

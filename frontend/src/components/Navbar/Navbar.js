@@ -52,10 +52,10 @@ const Navbar = () => {
         <NavLink to="/" className="nav-title">Squora</NavLink>
       </div>
       <div>
-        <p>Welcome {sessionUser.username}</p>
+        <p className="nav-p">Welcome {sessionUser.username}</p>
       </div>
 
-      <div>Search Squora</div>
+      {/* <div>Search Squora</div> */}
       <div>
         <button onClick={() => setShowModal(true)} className="nav-button">Add question</button>
         {showModal && (

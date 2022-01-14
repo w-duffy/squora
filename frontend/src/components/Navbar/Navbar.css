@@ -27,6 +27,8 @@
   height: 2rem;
   cursor: pointer;
   transition: all 300ms;
+  border-radius: 45px;
+  box-shadow: 0px 0px 3px 0px rgb(5, 5, 5);
 }
 
 .nav-button:hover {
@@ -38,6 +40,7 @@
   border: 0;
   height: 2rem;
   cursor: pointer;
+  box-shadow: 0px 0px 3px 0px rgb(5, 5, 5);
 }
 
 .nav-title {
@@ -159,6 +162,7 @@
   margin-left: 5px;
   margin-right: 5px;
   transition: all 300ms;
+  box-shadow: 0px 0px 3px 0px rgb(5, 5, 5);
 }
 
 .modal-buttons-ed:hover {
@@ -189,6 +193,13 @@
     margin-left: 5px;
     margin-right: 5px;
     transition: all 300ms;
+    box-shadow: 0px 0px 3px 0px rgb(5, 5, 5);
+  }
+  .nav-p{
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: black;
+    font-size: 16px;
+    font-weight: 510;
   }
 
   .modal-answer-button:hover {
@@ -200,6 +211,7 @@
     border: 0;
     height: 2rem;
     cursor: pointer;
+    box-shadow: 0px 0px 3px 0px rgb(5, 5, 5);
   }
 
 .close-buttons {
