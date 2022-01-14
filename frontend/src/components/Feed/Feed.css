@@ -107,7 +107,27 @@ div.feed-content-answer {
 }
 
 .answer-content{
+    display:flex;
+    justify-content: flex-start;
+    max-width: 390px;
     margin-bottom: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-weight: 510;
+    font-size: 19px;
+    color:  black;
+}
+
+.answer-content-p{
+    display:flex;
+    justify-content: flex-start;
+    max-width: 500px;
+    margin-top: 10px;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-weight: 510;
+    font-size: 19px;
+    color:  black;
 }
 
 .answers-button {

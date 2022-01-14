@@ -90,9 +90,11 @@ function AnswersFeed({ question }) {
 } else return (
     <>
     <div className="feed-content-answer-missing">
-        <p>
-            There are currently no answers to this question.  Be the first to answer by clicking the button below.
+          <div>
+          <p className="answer-content-p">
+            There are currently no answers to this question.  Be the first to answer by clicking below.
             </p>
+          </div>
             <div className="first-answer">
             <AnswersModal question={question} />
             </div>
