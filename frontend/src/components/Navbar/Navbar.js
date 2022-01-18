@@ -68,7 +68,7 @@ const Navbar = () => {
             <form onSubmit={postQuestion}>
               <ul>
                 {errors.map((error) => (
-                  <li key={error}>{error}</li>
+                  <li className="error-li" key={error}>{error}</li>
                   ))}
               </ul>
               <textarea
