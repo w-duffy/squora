@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 import "../Login/Login.css";
+import "../Questions/Questions.css"
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function SignupFormPage() {
   return (
     <form onSubmit={handleSubmit}>
       <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        {errors.map((error, idx) => <li className="error-li" key={idx}>{error}</li>)}
       </ul>
 
 

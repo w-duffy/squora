@@ -6,6 +6,7 @@ import ProfileButton from "../Navigation/ProfileButton";
 import QuestionModal from "../Questions/QuestionModal";
 import { Modal } from "../../context/Modal";
 import { addQuestionForm } from "../../store/questions";
+import "../Questions/Questions.css"
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
