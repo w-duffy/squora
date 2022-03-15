@@ -1,6 +1,6 @@
 # Squora
 
-[Squora](https://squora.herokuapp.com/), a full-stack application inspired by the questions and answers website Quora, is an online platform for users to ask answer and ask questions related to stock markets and investing.
+[Squora](https://squora.herokuapp.com/), a full-stack application inspired by the questions and answers website Quora, is an online platform for users to ask questions and share answers related to stock markets and investing.
 
 Visit the [wiki](https://github.com/w-duffy/squora/wiki/Feature-List) for more information.
 
