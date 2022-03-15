@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           ownerId: 1,
-          description: "What is a way to devise a clear-cut method for measuring the success or failure of your portfolio",
+          description: "What is a way to devise a clear-cut method for measuring the success or failure of your portfolio?",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
